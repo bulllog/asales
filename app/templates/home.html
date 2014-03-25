@@ -1,15 +1,33 @@
-<!Doctype html>
-
-<html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html language="en" xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title>Online shopping with algoholics groups</title>
+    {% block head %}
+      <link rel="stylesheet" type="text/css" href=/styles/asales.css>
+      <div id="asales-header-bar">
+	<ul>
+	  <li>{{user-email}}</li>
+	  <li>
+	    <a href="/">Sign Out</a>
+	  </li>
+	</ul>
+      </div>
+      <div id="asales-google-bar">
+	<a id="asales-logo" href="/"><img src="/images/aales_logo.jpg" alt="Google"></img></a>
+	<form class="gc-search" action="" method="GET">	
+	</form>
+      </div>
+
+    {% endblock %}
   </head>
-  <link rel='stylesheet' type="text/css" href=/styles/asales.css>
   <body>
-     <div id="google_bar">
-       <a id="gc-logo" href="/">
-         <img src="/images/finalLogo2.jpg" alt="Google">
-       </a>
+    {% block body %}
+    {% endblock %}
+  </body>
+</html>
+<script>
+  {% block jsblock %}
+  {% endblock jsblock %}
+</script>
        <form class="gc-search" action="" method="GET">
          <div id="searchbox" class="searchbox" style="">
 	   <input type="text" name="q" class="q" id="q" value="" placeholder="Search"  style="width: 100%;">

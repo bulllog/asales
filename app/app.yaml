@@ -1,5 +1,4 @@
-#This is configuration file for asale application in
-#appengine
+#This is configuration file for asale application in appengine.
 
 application: asales
 version: 1
