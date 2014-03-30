@@ -1,0 +1,28 @@
+{% extends base.html %}
+{% block body%}
+				<button type='button' id='asales-list-view'>List</button>
+				<button type='button' id='asales-grid-view'>Grid</button>
+				<div id='asales-products-container'>
+				<input type='hidden' id='asales-selected-category' value='{{category}}' />
+				<input type='hidden' id='asales-selected-subcategory' value='{{subcategory}}' />
+				<div id='asales-list-view-container'>
+								{% if len(products) %}
+								<ul id='asales-products-list'>
+								{% for product in products %}
+								<li><a href='/product/description/?category={{category}}&subcategory={{subcategory}}&product={{product.product_id}}' target='_blank'><img src='{{product.image_source}}'/></a></li>
+								<span>{{item.actual_cost}}</span>
+								<span class='asales-product-actual-cost'>{{item.actual_cost}}</span>
+								<span class'asales-product-discount'>{{item.discount}} + '%'</span>
+								<span class='asales-product-discounted-cost'>{{item.discounted_cost}}</span>
+								<button type='button' class='asales-add-to-cart-btn'>Add to Cart</button>
+								{% endfor %}
+								</ul> 
+				{% endif %}
+				</div>
+				<div id='asales-grid-view-container' style='display:none;'>
+				{% for product in products %}
+				{% endfor %}
+				</div>
+				</div>
+				</div>
+{% endblock %}

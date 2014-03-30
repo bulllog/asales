@@ -1,0 +1,123 @@
+#asales-header-bar {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	margin: -7px;
+	min-width: 952px;
+	width: auto !important;
+	position: relative;
+	background: #f1f1f1;
+	border-bottom: 1px solid #e5e5e5;
+	height: 100px;
+	overflow: hidden;
+	padding: 24px 44px;
+	color: rgba(255,255,255,0.5);
+}
+
+
+#asales-search {
+	position: absolute;
+	left: 30%;
+	width: 35%;
+}
+
+#asales-search #asales-search-box {
+	position: absolute;
+	left: 0px;
+	right: -60px;
+	background-color: #fff;
+	border: 1px solid rgba(0,0,0,0.15);
+	border-top: 1px solid rgba(0,0,0,0.25);
+	height: 28px;
+	padding-left: 4px;
+	webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	font-size: 13px;
+	margin: 0;
+	outline: none;
+	width: 100%;
+}
+
+#asales-search-button {
+	padding-top: 0;
+	padding-bottom: 1px;
+	position: absolute;
+  left: 105% ;
+}
+
+#asales-search-button img {
+  vertical-align: middle;
+  margin-top: -3px;
+}
+
+#asales-logo {
+	display: block;
+	height: 37px;
+	vertical-align: top;
+	text-decoration: none;
+	position: absolute;
+}
+
+#asales-logo img {
+	width: 12%;
+	vertical-align: top;
+	top: -20px;
+	margin-left: 5%;
+	position: relative;
+}
+
+#asales-categories-tabs {
+  height: 25px;
+  width: 100%;
+  margin-top: 3%;
+  margin-left: 8%;
+  border-bottom-width: thick;
+  border-bottom-style: solid;
+  margin-bottom: 5%;
+}
+
+#asales-categories-tabs ul {
+  padding: 0;
+  margin: 1px;
+}
+
+#asales-categories-tabs #asales-men-tab,
+#asales-categories-tabs #asales-women-tab,
+#asales-categories-tabs #asales-kids-tab,
+#asales-categories-tabs #asales-electronics-tab {
+  display: inline;
+  margin: 0;
+}
+
+#asales-men-tab #asales-men-submenu,
+#asales-women-tab #asales-women-submenu,
+#asales-kids-tab #asales-kids-submenu,
+#asales-electronics-tab #asales-electronics-submenu {
+  display: none;
+}
+
+#asales-men-tab:hover a,
+#asales-women-tab:hover a,
+#asales-kids-tab:hover a,
+#asales-electronics-tab:hover a {
+  color: red;
+}
+
+#asales-men-tab:hover #asales-men-submenu,
+#asales-women-tab:hover #asales-women-submenu,
+#asales-kids-tab:hover #asales-kids-submenu,
+#asales-electronics-tab:hover #asales-electronics-submenu {
+  display: block;
+}
+
+#asales-categories-tabs li a {
+  padding: 1em 1em;
+}
+
+.asales-tabs {
+  font-style: italic;
+  font-family: cursive;
+  font-weight: bolder;
+  font-size: 20px;
+}
