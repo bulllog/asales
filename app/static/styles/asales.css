@@ -1,11 +1,10 @@
-#google_bar {
+#asales-header-bar {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	margin: -7px;
 	min-width: 952px;
 	width: auto !important;
-	width: 952px;
 	position: relative;
 	background: #f1f1f1;
 	border-bottom: 1px solid #e5e5e5;
@@ -15,14 +14,14 @@
 	color: rgba(255,255,255,0.5);
 }
 
-.gc-search {
+
+#asales-search {
 	position: absolute;
-	left: 270px;
-	right: 308px;
-	width: 350px;
+	left: 30%;
+	width: 35%;
 }
 
-.gc-search .searchbox {
+#asales-search #asales-search-box {
 	position: absolute;
 	left: 0px;
 	right: -60px;
@@ -31,30 +30,99 @@
 	border-top: 1px solid rgba(0,0,0,0.25);
 	height: 28px;
 	padding-left: 4px;
-
-}
-
-.gc-search .searchbox input {
 	webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
-	background-color: transparent;
-	border: 0;
 	font-size: 13px;
-	height: 28px;
 	margin: 0;
 	outline: none;
-	padding: 5px 2px;
 	width: 100%;
-
 }
 
-#search-button {
+#asales-search-button {
 	padding-top: 0;
 	padding-bottom: 1px;
 	position: absolute;
-	right: 0;
+  left: 105% ;
+}
 
+#asales-search-button img {
+  vertical-align: middle;
+  margin-top: -3px;
+}
+
+#asales-logo {
+	display: block;
+	height: 37px;
+	vertical-align: top;
+	text-decoration: none;
+	position: absolute;
+}
+
+#asales-logo img {
+	width: 12%;
+	vertical-align: top;
+	top: -20px;
+	margin-left: 5%;
+	position: relative;
+}
+
+#asales-categories-tabs {
+  height: 25px;
+  width: 100%;
+  margin-top: 3%;
+  margin-left: 8%;
+  border-bottom-width: thick;
+  border-bottom-style: solid;
+  margin-bottom: 5%;
+}
+
+#asales-categories-tabs ul {
+  padding: 0;
+  margin: 1px;
+}
+
+#asales-categories-tabs #asales-men-tab,
+#asales-categories-tabs #asales-women-tab,
+#asales-categories-tabs #asales-kids-tab,
+#asales-categories-tabs #asales-electronics-tab {
+  display: inline;
+  margin: 0;
+}
+
+#asales-men-tab #asales-men-submenu,
+#asales-women-tab #asales-women-submenu,
+#asales-kids-tab #asales-kids-submenu,
+#asales-electronics-tab #asales-electronics-submenu {
+  display: none;
+}
+
+#asales-men-tab:hover a,
+#asales-women-tab:hover a,
+#asales-kids-tab:hover a,
+#asales-electronics-tab:hover a {
+  color: red;
+}
+
+#asales-men-tab:hover #asales-men-submenu,
+#asales-women-tab:hover #asales-women-submenu,
+#asales-kids-tab:hover #asales-kids-submenu,
+#asales-electronics-tab:hover #asales-electronics-submenu {
+  display: block;
+}
+
+#asales-categories-tabs li a {
+  padding: 1em 1em;
+}
+
+.asales-tabs {
+  font-style: italic;
+  font-family: cursive;
+  font-weight: bolder;
+  font-size: 20px;
+}
+a {
+  text-decoration: none !important;
 }
 
 .button-blue {
@@ -66,7 +134,6 @@
 	background-image: -moz-linear-gradient(top, #4d90fe,#4787ed) !important;
 	background-image: -o-linear-gradient(top, #4d90fe,#4787ed) !important;
 	background-image: linear-gradient(top, #4d90fe,#4787ed) !important;
-
 }
 
 .button {
@@ -105,23 +172,29 @@
 	-webkit-box-sizing: content-box;
 	-moz-box-sizing: content-box;
 	box-sizing: content-box;
-
 }
 
-#gc-logo {
-	display: block;
-	height: 37px;
-	vertical-align: top;
-	text-decoration: none;
-	position: absolute;
-
+ul {
+  list-style: none !important;
+}
+#asales-men-discounted-items #asales-men-discounted-item {
+  display: flex;
 }
 
-#gc-logo > img {
-	width: 172px;
-	vertical-align: top;
-	top: -31px;
-	left: 11px;
-	position: relative;
+.asales-home-categories {
+  margin-left: 10%;
+  font-size: larger;
+  font-family: fantasy;
+  color: brown;
+}
 
+#asales-men-discounted-items,
+#asales-women-discounted-items,
+#asales-kids-discounted-items,
+#asales-electronics-discounted-items {
+  border: solid;
+  width: 60%;
+  margin-left: 10%;
+  height: 350px;
+  position: relative;
 }

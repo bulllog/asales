@@ -8,13 +8,15 @@ class Home(pybase.PyBase):
     def get(self):
         """ Overrided function of base class"""
         categories = ['Men', 'Women', 'Kids', 'Electronics']
-        sub_categories = [
+        subcategories = [
             'Apparels', 'Footwear', 'Beauty', 'Accessories',
-            'Mobiles And Tablets', 'Computers And Laptops, Home Appliances'
+            'Mobiles And Tablets', 'Computers And Laptops', 'Home Appliances', 'Camera'
         ]
         template_value = {
-            'categories': categories, 'sub_categories': sub_categories,
-            'discounted_items': {}
+            'categories': categories, 'subcategories': subcategories,
+            'category_discounted_items': {
+              'Men':[{'id': 'bag', 'actual_cost': 'Rs. 3000', 'discount': '10%', 'discounted_cost': 'Rs. 2700'}], 'Women': [], 'Kids': [], 'Electronics': []
+            }
         }
         self.renderTemplate('home.html', template_value);
 
