@@ -177,10 +177,6 @@ a {
 ul {
   list-style: none !important;
 }
-#asales-men-discounted-items #asales-men-discounted-item {
-  display: flex;
-}
-
 .asales-home-categories {
   margin-left: 10%;
   font-size: larger;
@@ -197,4 +193,28 @@ ul {
   margin-left: 10%;
   height: 350px;
   position: relative;
+}
+
+.asales-discounted-image {
+  width: 38%;
+}
+
+.asales-discounted-image img {
+  height: 300px;
+  width: 35%;
+  float: left;
+} 
+
+.asales-discounted-item-info {
+  float: right;
+  margin-top: 2%;
+  font-weight: bold;
+  font-size: larger;
+  margin-right: 10%;
+}
+
+.asales-add-to-cart-btn {
+  width: 90%;
+  height: 50px;
+  font-size: larger;
 }

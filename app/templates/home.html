@@ -7,10 +7,12 @@
         {% for discounted_item in discounted_items %}
           <li id='asales-{{ category|lower }}-discounted-item'>
           <a href='/item/?category={{ category }}&item={{discounted_item.id}}' class='asales-discounted-image'><img src='/images/{{ discounted_item.id ~ ".jpg" }}' alt='Item'></a>
-          <p>Actual Cost: {{ discounted_item.actual_cost }}</p>
-          <p>Discount: {{ discounted_item.discount }}</p>
-          <p>Discounted Cost: {{ discounted_item.discounted_cost }}</p>
-          <input type='button' class='asales-add-to-cart-btn button button-blue' value='Add to Cart'>
+          <div class='asales-discounted-item-info'>
+            <p>Actual Cost: {{ discounted_item.actual_cost }}</p>
+            <p>Discount: {{ discounted_item.discount }}</p>
+            <p>Discounted Cost: {{ discounted_item.discounted_cost }}</p>
+            <input type='button' class='asales-add-to-cart-btn button button-blue' value='Add to Cart'>
+          </div>
           </li>
         {% endfor %}
       </ul>
