@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+  {% block body%}
+	<div class='tool-bar'>
+	  <div id='list-view-button' class='button'>
+		<div class='list-icon'></div>
+	  </div>
+	  <div id='grid-view-button' class='button button-active'>
+		<div class='grid-icon'></div>
+	  </div>
+	</div>
+	<div class='view-pane'>
+	  <div id="left-pane">
+		  <div class='filter-panel'>
+			Filter Options
+		  </div>
+	  </div>
+	  <div id='right-pane'>
+		<div class='asales-table' id='list-view'>
+		  <table class='data-table'>
+			<thead class='data-table-head'>
+			  <tr class='data-table-header'>
+				  {% for property in properties %}
+					<th>
+					  {{ columns[property] }}
+					</th>
+				  {% endfor %}
+				</tr>
+			</thead>
+			<tbody>
+			  {% for item in items %}
+				<tr class='data-table-tr'>
+				  {% for property in properties %}
+				  <td>
+					{% if property ==  "icon" %}
+					<img src='/images/{{ item[property] }}.jpg'></img>
+					{% else %}
+					  {{ item[property] }}
+					{% endif %}
+				  </td>
+				  {% endfor %}
+				  <div class='asales-detail-popup' id='pop-up-{{item['name']}}'>
+					<div class='popup-tool-tip'>
+					  <div class='popup-info'>
+						<div class='title'>{{ item['name'] }}</div>
+						<div class='brand-name'>Brand Name:  {{item['brand_name']}}</div>
+						<div class='description'>{{item['desc']}}</div>
+					  </div>
+					  <div class='item-icon'><img src='/images/{{item['icon']}}.jpg'></img></div>
+					</div>
+				  </div>
+				</tr>
+			  {% endfor %}
+			</tbody>
+		  </table>
+		</div>
+		<div id='grid-view'>
+		  {% for item in items%}
+			<div class='tile'></div>
+		  {% endfor %}
+		</div>
+	  </div>
+	</div>
+  {% endblock %} 

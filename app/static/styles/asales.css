@@ -74,7 +74,7 @@
 	border: 1px solid #dcdcdc;
 	border: 1px solid rgba(0,0,0,0.1);
 	color: #666;
-	cursor: pointer;
+	cursor: default;
 	display: -moz-inline-stack;
 	display: inline-block;
 	vertical-align: middle;
@@ -124,4 +124,178 @@
 	left: 11px;
 	position: relative;
 
+}
+.view-pane {
+  display: flex;
+  1px solid rgb(238, 226, 226);
+}
+
+.tool-bar {
+  height: 50px;
+  margin-top: 50px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+#left-pane {
+  width: 20%;
+}
+
+#right-pane {
+  width: 80%;
+}
+
+#list-view-button,
+#grid-view-button {
+  float: right;
+  margin: 1px;
+  min-width: 25px;
+}
+
+.filter-option {
+  margin-top: 10px;
+}
+
+.asales-table {
+  margin-top: 15px;
+}
+
+.asales-table > table {
+  -webkit-transition: font-size .218s,height .218s,line-height .218s,margin .218s,padding .218s,width .218s;
+  -moz-transition: font-size .218s,height .218s,line-height .218s,margin .218s,padding .218s,width .218s;
+  -o-transition: font-size .218s,height .218s,line-height .218s,margin .218s,padding .218s,width .218s;
+  transition: font-size .218s,height .218s,line-height .218s,margin .218s,padding .218s,width .218s;
+}
+
+.list-icon {
+  background: no-repeat url(/images/icon.png) -134px -122px;
+  background-size: 163px 320px;
+  width: 21px;
+  height: 21px;
+}
+
+.grid-icon {
+  background: no-repeat url(/images/icon.png) -122px -100px;
+  background-size: 167px 322px;
+  width: 21px;
+  height: 21px;
+}
+
+.button-active,
+.button-active {
+  -webkit-box-shadow: 0px 1px 5px 1px #888888;
+}
+
+#list-view {
+  display: none;
+}
+/*This file contain all the style for table.*/
+
+.data-table {  width: 100%;
+  table_layout: fixed;
+  border-spacing: 0;
+}
+
+.data-table .data-table-header {
+  -webkit-transition: font-size .218s,height .218s,line-height .218s,margin .218s,padding .218s,width .218s;
+  -moz-transition: font-size .218s,height .218s,line-height .218s,margin .218s,padding .218s,width .218s;
+  -o-transition: font-size .218s,height .218s,line-height .218s,margin .218s,padding .218s,width .218s;
+  transition: font-size .218s,height .218s,line-height .218s,margin .218s,padding .218s,width .218s;
+  height: 24px;
+}
+
+.data-table-header {
+  color: #555;
+  font-family: arial,sans-serif;
+  font-size: 11px;
+}
+
+.data-table-header th {
+  background: white;
+  border-bottom: 1px solid #e5e5e5;
+  empty-cells: show;
+  font-size: 13px;
+  font-weight: normal;
+  overflow: hidden;
+  padding: 5px 5px 5px 6px;
+  text-align: left;
+  text-transform: uppercase;
+  white-space: nowrap;
+  z-index: 1;
+  zoom: 1;
+}
+
+.data-table-header:hover {
+  background: aliceblue;
+}
+
+.data-table tr {
+  height: 30px;
+}
+
+.data-table-tr {
+  -webkit-transition: font-size .218s,height .218s,line-height .218s,margin .218s,padding .218s,width .218s;
+  -moz-transition: font-size .218s,height .218s,line-height .218s,margin .218s,padding .218s,width .218s;
+  -o-transition: font-size .218s,height .218s,line-height .218s,margin .218s,padding .218s,width .218s;
+  transition: font-size .218s,height .218s,line-height .218s,margin .218s,padding .218s,width .218s;
+}
+
+.data-table .data-table-tr td {
+  border-bottom: 1px solid #e5e5e5;
+  empty-cells: show;
+  font-family: arial,sans-serif;
+  font-size: 14px;
+  padding-left: 5px;
+}
+
+.data-table .data-table-tr td img {
+  width: 80px;
+  height: 40px;
+}
+.data-table .data-table-tr:hover {
+  background: rgba(250, 235, 215, 0.5);
+}
+.asales-detail-popup {
+  display: none;
+}
+
+.popup-tool-tip {
+  -webkit-box-shadow: 0px 0px 15px 5px #888888;
+  background: white;
+  border-radius: 8px;
+  display:flex;
+  height: 13em;
+  opacity: 1;
+  position: absolute;
+  width: 40%;
+  z-index: 1000;
+}
+
+.popup-info {
+  margin-left: 9px;
+  margin-top: 20px;
+  width: 110%;
+}
+
+.popup-info div {
+  padding: 10px;
+}
+
+.item-icon {
+  width: 90%;
+}
+
+.item-icon img {
+  width: 100%;
+  margin-top: 10%;
+  margin-left: -4%;
+  -webkit-box-shadow: 0px 0px 13px 0px rgb(43, 43, 201);
+}
+
+.title {
+  font-family: arial,sans-serif;
+  font-size: 17px;
+}
+
+.description {
+  max-width: 250px;
 }

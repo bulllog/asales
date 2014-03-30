@@ -4,7 +4,13 @@
 
 components =  components.css
 
-files = ${components}
+items = items.css
+
+table = table.css
+
+popup = popup.css
+
+files = ${components} ${items} ${table} ${popup}
 
 asales.css: ${files}
 	cat > $@ $^

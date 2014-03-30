@@ -1,0 +1,63 @@
+.view-pane {
+  display: flex;
+  1px solid rgb(238, 226, 226);
+}
+
+.tool-bar {
+  height: 50px;
+  margin-top: 50px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+#left-pane {
+  width: 20%;
+}
+
+#right-pane {
+  width: 80%;
+}
+
+#list-view-button,
+#grid-view-button {
+  float: right;
+  margin: 1px;
+  min-width: 25px;
+}
+
+.filter-option {
+  margin-top: 10px;
+}
+
+.asales-table {
+  margin-top: 15px;
+}
+
+.asales-table > table {
+  -webkit-transition: font-size .218s,height .218s,line-height .218s,margin .218s,padding .218s,width .218s;
+  -moz-transition: font-size .218s,height .218s,line-height .218s,margin .218s,padding .218s,width .218s;
+  -o-transition: font-size .218s,height .218s,line-height .218s,margin .218s,padding .218s,width .218s;
+  transition: font-size .218s,height .218s,line-height .218s,margin .218s,padding .218s,width .218s;
+}
+
+.list-icon {
+  background: no-repeat url(/images/icon.png) -134px -122px;
+  background-size: 163px 320px;
+  width: 21px;
+  height: 21px;
+}
+
+.grid-icon {
+  background: no-repeat url(/images/icon.png) -122px -100px;
+  background-size: 167px 322px;
+  width: 21px;
+  height: 21px;
+}
+
+.button-active,
+.button-active {
+  -webkit-box-shadow: 0px 1px 5px 1px #888888;
+}
+
+#list-view {
+  display: none;
+}
