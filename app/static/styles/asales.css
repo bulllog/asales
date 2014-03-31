@@ -70,16 +70,13 @@
 #asales-categories-tabs {
   height: 25px;
   width: 100%;
-  margin-top: 3%;
+  margin-top: 5%;
   margin-left: 8%;
-  border-bottom-width: thick;
-  border-bottom-style: solid;
   margin-bottom: 5%;
 }
 
 #asales-categories-tabs ul {
   padding: 0;
-  margin: 1px;
 }
 
 #asales-categories-tabs #asales-men-tab,
@@ -97,29 +94,32 @@
   display: none;
 }
 
-#asales-men-tab:hover a,
-#asales-women-tab:hover a,
-#asales-kids-tab:hover a,
-#asales-electronics-tab:hover a {
-  color: red;
+#asales-men-tab:hover #asales-men-tab:first-child,
+#asales-women-tab:hover #asales-women-tab:first-child,
+#asales-kids-tab:hover #asales-kids-tab:first-child,
+#asales-electronics-tab:hover #asales-electronics-tab:first-child {
+  color: black;
 }
 
 #asales-men-tab:hover #asales-men-submenu,
 #asales-women-tab:hover #asales-women-submenu,
 #asales-kids-tab:hover #asales-kids-submenu,
 #asales-electronics-tab:hover #asales-electronics-submenu {
-  display: block;
+  display: table;
 }
 
 #asales-categories-tabs li a {
-  padding: 1em 1em;
+  padding: .5em 2em 0.5em 2em;
+  cursor: pointer;
+  background-color: #f5f5f5;
+  border: 1px solid lightgray;
+  color: grey;
 }
 
 .asales-tabs {
-  font-style: italic;
-  font-family: cursive;
-  font-weight: bolder;
-  font-size: 20px;
+  font-weight: bold;
+  font-size: 18px;
+  border-right-color: transparent !important;
 }
 a {
   text-decoration: none !important;
@@ -180,15 +180,15 @@ ul {
 .asales-home-categories {
   margin-left: 10%;
   font-size: larger;
-  font-family: fantasy;
-  color: brown;
+  font-weight: bold;
+  color: grey;
 }
 
 #asales-men-discounted-items,
 #asales-women-discounted-items,
 #asales-kids-discounted-items,
 #asales-electronics-discounted-items {
-  border: solid;
+  border: 1px solid grey;
   width: 60%;
   margin-left: 10%;
   height: 350px;
@@ -209,12 +209,13 @@ ul {
   float: right;
   margin-top: 2%;
   font-weight: bold;
-  font-size: larger;
+  font-size: large;
   margin-right: 10%;
+  color: black;
 }
 
 .asales-add-to-cart-btn {
   width: 90%;
   height: 50px;
-  font-size: larger;
+  font-size: large;
 }
