@@ -19,7 +19,16 @@ class Home(pybase.PyBase):
         item_obj.has_discount = True
         item_obj.discount = 50
         item_obj.put()
+        
+        categories = ['Men', 'Women', 'Kids', 'Electronics']
+        subcategories = [
+            'Apparels', 'Footwear', 'Beauty', 'Accessories',
+            'Mobiles And Tablets', 'Computers And Laptops', 'Home Appliances', 'Camera'
+        ]
         template_value = {
-            'home': 'hi this is home.html'
-                }
-        self.renderTemplate('home.html', template_value)
+            'categories': categories, 'subcategories': subcategories,
+            'category_discounted_items': {
+              'Men':[{'id': 'bag', 'actual_cost': 'Rs. 3000', 'discount': '10%', 'discounted_cost': 'Rs. 2700'}], 'Women': [], 'Kids': [], 'Electronics': []
+            }
+        }
+        self.renderTemplate('home.html', template_value);

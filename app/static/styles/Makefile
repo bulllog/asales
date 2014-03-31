@@ -2,15 +2,16 @@
 
 #src path
 
-components =  components.css
-
+base = base.css
+components = components.css
+home = home.css
+payment = payment.css
 items = items.css
-
 table = table.css
-
 popup = popup.css
 
-files = ${components} ${items} ${table} ${popup}
+files = ${base} ${components} ${home} ${payment.css} ${components} ${items} ${table} ${popup}
+
 
 asales.css: ${files}
 	cat > $@ $^
