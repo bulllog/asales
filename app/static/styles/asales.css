@@ -198,6 +198,10 @@ ul {
   height: 350px;
   position: relative;
 }
+
+.asales-discounted-image {
+  width: 60%;
+}
 .view-pane {
   display: flex;
   1px solid rgb(238, 226, 226);
@@ -260,6 +264,91 @@ ul {
 
 #list-view {
   display: none;
+}
+
+#grid-view {
+  width: 100%;
+  min-height: 26em;
+  background: rgba(0,0,0,.2);
+  margin-top: 25px;
+  box-shadow: inset 1px 1px 0 rgba(0,0,0,.1),inset 0 -1px 0 rgba(0,0,0,.07);
+}
+
+.tile {
+  display:inline-block;
+  width: 29%;
+  background: white;
+  height: 20em;
+  margin: 1.6%;
+  box-shadow: inset 1px 1px 0 rgba(0,0,0,.1),inset 0 -1px 0 rgba(0,0,0,.07);:w
+
+}
+
+.tile-header {
+  display: flex;
+  margin: 12px;
+}
+
+.tile-price {
+  display: flex;
+  margin-left: 14%;
+}
+
+.tile-icon img {
+  width: 90%;
+  -webkit-box-shadow: 0px 0px 7px 0px blue;
+  margin-left:5%;
+  height: 220px;
+}
+
+.tile-container {
+  display: inline-block;
+}
+
+.tile-title, .tile-price {
+  font-size: 13px;
+  font-weight: normal;
+  font-family: arial,sans-serif;
+}
+
+.tile-slider {
+  background: blue;
+  opacity: 0.5;
+  position: relative;
+  top: -83.3%;
+  height: 0px;
+  transition-property: height;
+  transition-duration: 3s;
+
+  /* Safari */
+  -webkit-transition-property: height;
+  -webkit-transition-duration: 3s;
+}
+
+.tile:hover .tile-slider {
+  height: 100%
+}
+
+.tile-slider-info {
+  color: aliceblue;
+  position: relative;
+  top: 75%;
+  left: 3%;
+}
+
+.tile-slider-info {
+  position: relative;
+  left: -35px;
+}
+
+.tile-brand-name {
+  font-weight: bolder;
+  position: relative;
+  top: -10px;
+}
+
+.tile-desc {
+  max-width: 185px;
 }
 /*This file contain all the style for table.*/
 

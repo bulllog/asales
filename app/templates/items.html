@@ -10,9 +10,35 @@
 	</div>
 	<div class='view-pane'>
 	  <div id="left-pane">
-		  <div class='filter-panel'>
-			Filter Options
-		  </div>
+	    <div class='filter-panel'>
+	      <div class='filter-title'> Filter Options </div>
+	      <div class='filter-options'>
+		<ul>
+		  <li class='brand-filter filter'>
+		    <ul class='filter-options'>
+		      <li class='options-title'>Choose Brand</li>
+		      <li class='option'>
+			<span>WoodLand</span><input type='checkbox' class='brand-options'>
+		      </li>
+		      <li class='option'>
+			<span>Reebok</span><input type='checkbox' class='brand-options'>
+		      </li>
+		    </ul>
+		  </li>
+		  <li class='discount-filter filter'>
+		    <ul calss='filter-options'>
+		      <li class='options-title'>Discount</li>
+		      <li class='option'>
+			<span>Discounted</span><input type='checkbox' class='discount-options'>
+		      </li>
+		      <li class='option'>
+			<span>Non Discounted</span><input type='checkbox' class='discount-options'>
+		      </li>
+		    </ul>
+		  </li>
+		</ul>
+	      </div>
+	    </div>
 	  </div>
 	  <div id='right-pane'>
 		<div class='asales-table' id='list-view'>
@@ -54,9 +80,27 @@
 		  </table>
 		</div>
 		<div id='grid-view'>
-		  {% for item in items%}
-			<div class='tile'></div>
-		  {% endfor %}
+		  <div class='tile-container'>
+		    {% for item in items%}
+		      <div class='tile'>
+			<div class='tile-header'>
+			  <div class='tile-title'>
+			    <span> Product Name : </span>{{item['name']}}
+			  </div>
+			  <div class='tile-price'>
+			    <span>Price : </span>{{item['price']}}
+			  </div>
+			</div>
+			<div class='tile-icon'>
+			  <img src='/images/{{item['icon']}}.jpg'></img>
+			</div>
+			<div class='tile-slider'>
+			  <div class='tile-slider-info'>
+			  </div>
+			</div>
+		      </div>
+		    {% endfor %}
+		  </div>
 		</div>
 	  </div>
 	</div>
