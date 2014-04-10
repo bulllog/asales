@@ -18,23 +18,38 @@
 		    <ul class='filter-options'>
 		      <li class='options-title'>Choose Brand</li>
 		      <li class='option'>
-			<span>WoodLand</span><input type='checkbox' class='brand-options'>
+			<input type='checkbox'class='brand-option'><span>WoodLand</span>
 		      </li>
 		      <li class='option'>
-			<span>Reebok</span><input type='checkbox' class='brand-options'>
+			<input type='checkbox'class='brand-option'><span>Reebok</span>
 		      </li>
 		    </ul>
 		  </li>
 		  <li class='discount-filter filter'>
-		    <ul calss='filter-options'>
+		    <ul class='filter-options'>
 		      <li class='options-title'>Discount</li>
 		      <li class='option'>
-			<span>Discounted</span><input type='checkbox' class='discount-options'>
+			<input type='checkbox' class='discount-option'><span>Discounted</span>
 		      </li>
 		      <li class='option'>
-			<span>Non Discounted</span><input type='checkbox' class='discount-options'>
+			<input type='checkbox' class='discount-option'><span>Non Discounted</span>
 		      </li>
 		    </ul>
+		  </li>
+		  <li class='price-filter filter'>
+		    <ul class='filter-options' >
+		      <li class='options-title'>Price</li>
+		      <li class='option' id='price-filter-tool'>
+			<div id="slider_base"></div>
+			<div class='price-controller'>
+			  <span id="slider_min" class='slider'>O</span>
+			  <span id='slider_max' class='slider'>O</span>
+			</div>
+		      </li>
+		      <li class='filtered-price'>
+			<input type='textBox' class='min_value'>
+			<input type='textBox' class='max_value'>
+		      </li>
 		  </li>
 		</ul>
 	      </div>
@@ -104,4 +119,29 @@
 		</div>
 	  </div>
 	</div>
-  {% endblock %} 
+  {% endblock %}
+
+  {% block jsblock %}
+    
+    var $ = goog.dom.getElement;
+    // SLIDER EXAMPLE
+    //================
+
+    var slider1 = new goog.fx.Dragger($('slider_min'), null,
+	new goog.math.Rect(0, 0, 177, 0));
+
+    var slider2 = new goog.fx.Dragger($('slider_max'), null,
+	new goog.math.Rect(0, 0, 177, 0));
+
+    goog.array.forEach([slider1, slider2],function(ele) {
+      goog.events.listen(ele, 'drag', function(e) {
+	var another_mob = e.target == slider1 ? slider2 : slider1;
+	var new_limit = e.target == slider1 ? new goog.math.Rect(e.left, 0, 177-e.left, 0) :
+      new goog.math.Rect(0, 0, e.left, 0);
+	var percent = Math.round(100 * (e.left - e.dragger.limits.left) /
+      e.dragger.limits.width);
+	e.target.innerHTML = percent;
+	another_mob.setLimits(new_limit);
+	})});
+
+  {% endblock %}

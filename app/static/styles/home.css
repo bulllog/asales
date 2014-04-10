@@ -1,19 +1,15 @@
-#asales-men-discounted-items #asales-men-discounted-item {
-  display: flex;
-}
-
 .asales-home-categories {
   margin-left: 10%;
   font-size: larger;
-  font-family: fantasy;
-  color: brown;
+  font-weight: bold;
+  color: grey;
 }
 
 #asales-men-discounted-items,
 #asales-women-discounted-items,
 #asales-kids-discounted-items,
 #asales-electronics-discounted-items {
-  border: solid;
+  border: 1px solid grey;
   width: 60%;
   margin-left: 10%;
   height: 350px;
@@ -21,5 +17,26 @@
 }
 
 .asales-discounted-image {
-  width: 60%;
+  width: 38%;
+}
+
+.asales-discounted-image img {
+  height: 300px;
+  width: 35%;
+  float: left;
+} 
+
+.asales-discounted-item-info {
+  float: right;
+  margin-top: 2%;
+  font-weight: bold;
+  font-size: large;
+  margin-right: 10%;
+  color: black;
+}
+
+.asales-add-to-cart-btn {
+  width: 90%;
+  height: 50px;
+  font-size: large;
 }

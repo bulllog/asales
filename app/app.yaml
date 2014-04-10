@@ -13,6 +13,9 @@ handlers:
 - url: /images
   static_dir: static/images
 
+- url: /js
+  static_dir: ../../../closure/closure-library/closure/goog
+
 - url: .*
   script: asales.app
 
