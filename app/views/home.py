@@ -13,13 +13,14 @@ class Home(pybase.PyBase):
         item_obj = items.Item()
         item_obj.category = category.Category.MEN
         item_obj.subcategory = subcategory.SubCategory.CLOTHING
-        item_obj.item = 'loafers'
+        item_obj.name = 'loafers'
         item_obj.price = 500
         item_obj.brand_name = 'Reebok'
         item_obj.has_discount = True
         item_obj.discount = 50
+        item_obj.discounted_price = 250
         item_obj.put()
-        
+
         categories = ['Men', 'Women', 'Kids', 'Electronics']
         subcategories = [
             'Apparels', 'Footwear', 'Beauty', 'Accessories',
