@@ -1,0 +1,143 @@
+.view-pane {
+  display: flex;
+  margin-top: 20px;
+}
+
+.tool-bar {
+  height: 50px;
+  margin-top: 50px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+#left-pane {
+  width: 20%;
+}
+
+#right-pane {
+  width: 80%;
+}
+
+#list-view-button,
+#grid-view-button {
+  float: right;
+  margin: 1px;
+  min-width: 25px;
+}
+
+.asales-table {
+  margin-top: 15px;
+}
+
+.asales-table > table {
+  -webkit-transition: font-size .218s,height .218s,line-height .218s,margin .218s,padding .218s,width .218s;
+  -moz-transition: font-size .218s,height .218s,line-height .218s,margin .218s,padding .218s,width .218s;
+  -o-transition: font-size .218s,height .218s,line-height .218s,margin .218s,padding .218s,width .218s;
+  transition: font-size .218s,height .218s,line-height .218s,margin .218s,padding .218s,width .218s;
+}
+
+.list-icon {
+  background: no-repeat url(/images/icon.png) -134px -122px;
+  background-size: 163px 320px;
+  width: 21px;
+  height: 21px;
+}
+
+.grid-icon {
+  background: no-repeat url(/images/icon.png) -122px -100px;
+  background-size: 167px 322px;
+  width: 21px;
+  height: 21px;
+}
+
+.button-active,
+.button-active {
+  -webkit-box-shadow: 0px 1px 5px 1px #888888;
+}
+
+#list-view {
+  display: none;
+}
+
+#grid-view {
+  width: 100%;
+  min-height: 26em;
+  background: rgba(0,0,0,.2);
+  box-shadow: inset 1px 1px 0 rgba(0,0,0,.1),inset 0 -1px 0 rgba(0,0,0,.07);
+}
+
+.tile {
+  display:inline-block;
+  width: 29%;
+  background: white;
+  height: 20em;
+  margin: 1.6%;
+  box-shadow: inset 1px 1px 0 rgba(0,0,0,.1),inset 0 -1px 0 rgba(0,0,0,.07);:w
+
+}
+
+.tile-header {
+  display: flex;
+  margin: 12px;
+}
+
+.tile-price {
+  display: flex;
+  margin-left: 14%;
+}
+
+.tile-icon img {
+  width: 90%;
+  -webkit-box-shadow: 0px 0px 7px 0px blue;
+  margin-left:5%;
+  height: 220px;
+}
+
+.tile-container {
+  display: inline-block;
+}
+
+.tile-title, .tile-price {
+  font-size: 13px;
+  font-weight: normal;
+  font-family: arial,sans-serif;
+}
+
+.tile-slider {
+  background: blue;
+  opacity: 0.5;
+  position: relative;
+  top: -82.3%;
+  height: 0px;
+  transition-property: height;
+  transition-duration: 3s;
+
+  /* Safari */
+  -webkit-transition-property: height;
+  -webkit-transition-duration: 3s;
+}
+
+.tile:hover .tile-slider {
+  height: 100%
+}
+
+.tile-slider-info {
+  color: aliceblue;
+  position: relative;
+  top: 75%;
+  left: 3%;
+}
+
+.tile-slider-info {
+  position: relative;
+  left: -35px;
+}
+
+.tile-brand-name {
+  font-weight: bolder;
+  position: relative;
+  top: -10px;
+}
+
+.tile-desc {
+  max-width: 185px;
+}

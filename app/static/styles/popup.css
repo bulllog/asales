@@ -1,0 +1,45 @@
+.asales-detail-popup {
+  display: none;
+}
+
+.popup-tool-tip {
+  -webkit-box-shadow: 0px 0px 15px 5px #888888;
+  background: white;
+  border-radius: 8px;
+  display:flex;
+  height: 13em;
+  opacity: 1;
+  position: absolute;
+  width: 40%;
+  z-index: 1000;
+}
+
+.popup-info {
+  margin-left: 9px;
+  margin-top: 20px;
+  width: 110%;
+}
+
+.popup-info div {
+  padding: 10px;
+}
+
+.item-icon {
+  width: 90%;
+}
+
+.item-icon img {
+  width: 100%;
+  margin-top: 10%;
+  margin-left: -4%;
+  -webkit-box-shadow: 0px 0px 13px 0px rgb(43, 43, 201);
+}
+
+.title {
+  font-family: arial,sans-serif;
+  font-size: 17px;
+}
+
+.description {
+  max-width: 250px;
+}

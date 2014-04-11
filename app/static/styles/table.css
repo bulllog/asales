@@ -1,0 +1,66 @@
+/*This file contain all the style for table.*/
+
+.data-table {  width: 100%;
+  table_layout: fixed;
+  border-spacing: 0;
+}
+
+.data-table .data-table-header {
+  -webkit-transition: font-size .218s,height .218s,line-height .218s,margin .218s,padding .218s,width .218s;
+  -moz-transition: font-size .218s,height .218s,line-height .218s,margin .218s,padding .218s,width .218s;
+  -o-transition: font-size .218s,height .218s,line-height .218s,margin .218s,padding .218s,width .218s;
+  transition: font-size .218s,height .218s,line-height .218s,margin .218s,padding .218s,width .218s;
+  height: 24px;
+}
+
+.data-table-header {
+  color: #555;
+  font-family: arial,sans-serif;
+  font-size: 11px;
+}
+
+.data-table-header th {
+  background: white;
+  border-bottom: 1px solid #e5e5e5;
+  empty-cells: show;
+  font-size: 13px;
+  font-weight: normal;
+  overflow: hidden;
+  padding: 5px 5px 5px 6px;
+  text-align: left;
+  text-transform: uppercase;
+  white-space: nowrap;
+  z-index: 1;
+  zoom: 1;
+}
+
+.data-table-header:hover {
+  background: aliceblue;
+}
+
+.data-table tr {
+  height: 30px;
+}
+
+.data-table-tr {
+  -webkit-transition: font-size .218s,height .218s,line-height .218s,margin .218s,padding .218s,width .218s;
+  -moz-transition: font-size .218s,height .218s,line-height .218s,margin .218s,padding .218s,width .218s;
+  -o-transition: font-size .218s,height .218s,line-height .218s,margin .218s,padding .218s,width .218s;
+  transition: font-size .218s,height .218s,line-height .218s,margin .218s,padding .218s,width .218s;
+}
+
+.data-table .data-table-tr td {
+  border-bottom: 1px solid #e5e5e5;
+  empty-cells: show;
+  font-family: arial,sans-serif;
+  font-size: 14px;
+  padding-left: 5px;
+}
+
+.data-table .data-table-tr td img {
+  width: 80px;
+  height: 40px;
+}
+.data-table .data-table-tr:hover {
+  background: rgba(250, 235, 215, 0.5);
+}

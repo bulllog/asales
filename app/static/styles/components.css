@@ -18,7 +18,7 @@ a {
 	border: 1px solid #dcdcdc;
 	border: 1px solid rgba(0,0,0,0.1);
 	color: #666;
-	cursor: pointer;
+	cursor: default;
 	display: -moz-inline-stack;
 	display: inline-block;
 	vertical-align: middle;

@@ -1,0 +1,48 @@
+/*stylesheets for slider with two mobs.*/
+
+
+.slider {
+  position: relative;
+  width: 15px;
+  height: 30px;
+  font: normal 18px verdana;
+  background-color: #EEE;
+  color: #000;
+  text-align: end;
+  border: 1px solid #999;
+  cursor: default;
+
+}
+
+#slider_base {
+  border-radius: 20px;
+  position: relative;
+  height: 5px;
+  width: 95.3%;
+  font-size: 1px;
+  background-color: #999;
+  margin-top: 20px;
+}
+  
+.price-controller {
+  position: relative;
+  top: -11px;
+}
+
+#slider_max {
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  left: 79%;
+}
+
+#slider_min {
+  border-bottom-left-radius: 12px;
+  border-top-left-radius: 12px;
+}
+
+#slider_min:hover,
+#slider_max:hover,
+#slider_min:active,
+#slider_max:active {
+  -webkit-box-shadow: 0 0 6px 1px blue;
+}

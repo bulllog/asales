@@ -1,0 +1,147 @@
+{% extends 'base.html' %}
+  {% block body%}
+	<div class='tool-bar'>
+	  <div id='list-view-button' class='button'>
+		<div class='list-icon'></div>
+	  </div>
+	  <div id='grid-view-button' class='button button-active'>
+		<div class='grid-icon'></div>
+	  </div>
+	</div>
+	<div class='view-pane'>
+	  <div id="left-pane">
+	    <div class='filter-panel'>
+	      <div class='filter-title'> Filter Options </div>
+	      <div class='filter-options'>
+		<ul>
+		  <li class='brand-filter filter'>
+		    <ul class='filter-options'>
+		      <li class='options-title'>Choose Brand</li>
+		      <li class='option'>
+			<input type='checkbox'class='brand-option'><span>WoodLand</span>
+		      </li>
+		      <li class='option'>
+			<input type='checkbox'class='brand-option'><span>Reebok</span>
+		      </li>
+		    </ul>
+		  </li>
+		  <li class='discount-filter filter'>
+		    <ul class='filter-options'>
+		      <li class='options-title'>Discount</li>
+		      <li class='option'>
+			<input type='checkbox' class='discount-option'><span>Discounted</span>
+		      </li>
+		      <li class='option'>
+			<input type='checkbox' class='discount-option'><span>Non Discounted</span>
+		      </li>
+		    </ul>
+		  </li>
+		  <li class='price-filter filter'>
+		    <ul class='filter-options' >
+		      <li class='options-title'>Price</li>
+		      <li class='option' id='price-filter-tool'>
+			<div id="slider_base"></div>
+			<div class='price-controller'>
+			  <span id="slider_min" class='slider'>O</span>
+			  <span id='slider_max' class='slider'>O</span>
+			</div>
+		      </li>
+		      <li class='filtered-price'>
+			<input type='textBox' class='min_value'>
+			<input type='textBox' class='max_value'>
+		      </li>
+		  </li>
+		</ul>
+	      </div>
+	    </div>
+	  </div>
+	  <div id='right-pane'>
+		<div class='asales-table' id='list-view'>
+		  <table class='data-table'>
+			<thead class='data-table-head'>
+			  <tr class='data-table-header'>
+				  {% for property in properties %}
+					<th>
+					  {{ columns[property] }}
+					</th>
+				  {% endfor %}
+				</tr>
+			</thead>
+			<tbody>
+			  {% for item in items %}
+				<tr class='data-table-tr'>
+				  {% for property in properties %}
+				  <td>
+					{% if property ==  "icon" %}
+					<img src='/images/{{ item[property] }}.jpg'></img>
+					{% else %}
+					  {{ item[property] }}
+					{% endif %}
+				  </td>
+				  {% endfor %}
+				  <div class='asales-detail-popup' id='pop-up-{{item['name']}}'>
+					<div class='popup-tool-tip'>
+					  <div class='popup-info'>
+						<div class='title'>{{ item['name'] }}</div>
+						<div class='brand-name'>Brand Name:  {{item['brand_name']}}</div>
+						<div class='description'>{{item['desc']}}</div>
+					  </div>
+					  <div class='item-icon'><img src='/images/{{item['icon']}}.jpg'></img></div>
+					</div>
+				  </div>
+				</tr>
+			  {% endfor %}
+			</tbody>
+		  </table>
+		</div>
+		<div id='grid-view'>
+		  <div class='tile-container'>
+		    {% for item in items%}
+		      <div class='tile'>
+			<div class='tile-header'>
+			  <div class='tile-title'>
+			    <span> Product Name : </span>{{item['name']}}
+			  </div>
+			  <div class='tile-price'>
+			    <span>Price : </span>{{item['price']}}
+			  </div>
+			</div>
+			<div class='tile-icon'>
+			  <img src='/images/{{item['icon']}}.jpg'></img>
+			</div>
+			<div class='tile-slider'>
+			  <div class='tile-slider-info'>
+			  </div>
+			</div>
+		      </div>
+		    {% endfor %}
+		  </div>
+		</div>
+	  </div>
+	</div>
+  {% endblock %}
+
+  {% block jsblock %}
+    
+    var $ = goog.dom.getElement;
+    // SLIDER EXAMPLE
+    //================
+
+    var slider1 = new goog.fx.Dragger($('slider_min'), null,
+	new goog.math.Rect(0, 0, 177, 0));
+
+    var slider2 = new goog.fx.Dragger($('slider_max'), null,
+	new goog.math.Rect(0, 0, 177, 0));
+
+    goog.array.forEach([slider1, slider2],function(ele) {
+      goog.events.listen(ele, 'drag', function(e) {
+	var another_mob = e.target == slider1 ? slider2 : slider1;
+	var new_limit = e.target == slider1 ? new goog.math.Rect(e.left, 0, 177-e.left, 0) :
+      new goog.math.Rect(0, 0, e.left, 0);
+	var percent = Math.round(100 * (e.left - e.dragger.limits.left) /
+      e.dragger.limits.width);
+	e.target.innerHTML = percent;
+	another_mob.setLimits(new_limit);
+	})});
+
+  {% endblock %}

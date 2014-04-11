@@ -1,6 +1,12 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html language='en' xmlns='http://www.w3.org/1999/xhtml'>
   <head>
+    <script type='text/javascript' src='/js/base.js'></script>
+    <script>
+      goog.require('goog.fx.Dragger');
+      goog.require('goog.dom');
+      goog.require('goog.style');
+    </script>
     <link rel='stylesheet' type='text/css' href='/styles/asales.css' />
     <script type='text/javascript' src='/js/closure-lib/closure/goog/base.js'></script>
     <script type='text/javascript' src='/js/base.js'></script>
@@ -22,7 +28,7 @@
           <div id='asales-categories-tabs'>
           <ul id='asales-menu-tabs'>
             {% for category in categories%}
-              <li id='asales-{{category|lower}}-tab'>
+              <li id='asales-{{category|lower}}-tab' class='tabs'>
                 <a href='/items/?category={{ category }}' class='asales-tabs'>{{category}}</a>
                 <ul id='asales-{{category|lower}}-submenu' >
                   {% if not loop.last %}

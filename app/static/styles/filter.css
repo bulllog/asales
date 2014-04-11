@@ -1,0 +1,59 @@
+/*File for style on filter options.*/
+
+.filter-panel {
+  background: rgba(0,0,0,.2);
+  height: 26em;
+  margin-right: 5px;
+  padding-right: 0px;
+}
+
+.filter-title {
+  padding: 5px;
+  padding-left: 13px;
+  border-bottom: white 2px solid;
+  margin-left: 11px;
+  margin-right: 11px;
+  font-family: arial, sens-serif;
+  font-size: 16px;
+}
+
+.filter-options {
+  padding-left: 0px;
+}
+
+.filter {
+  margin-right: 71px;
+  margin-bottom: 15px;
+  min-width: 55%;
+  background: white;
+  -webkit-box-shadow: 0px 0px 15px -2px blue;
+  border-radius: 5px;
+  width: 80%;
+}
+
+.option, .options-title {
+  padding: 5px;
+  font-family: arial, sens-sarif;
+  font-size: 15px;
+  width: 100%;
+}
+
+.option input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.filtered-price {
+  display: flex;
+}
+
+.price-filter {
+  width:108%;
+  margin-left: -29px;
+}
+
+.filter input[type='textBox'] {
+  margin: 20px;
+  margin-bottom: 10px;
+
+}
+
