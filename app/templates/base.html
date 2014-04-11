@@ -2,6 +2,8 @@
 <html language='en' xmlns='http://www.w3.org/1999/xhtml'>
   <head>
     <link rel='stylesheet' type='text/css' href='/styles/asales.css' />
+    <script type='text/javascript' src='/js/closure-lib/closure/goog/base.js'></script>
+    <script type='text/javascript' src='/js/base.js'></script>
   </head>
   <body>
     {% block header %}
@@ -46,5 +48,6 @@
 </html>
 <script>
   {% block jsblock %}
+    var baseFunc = new asales.base(); 
   {% endblock %}
 </script>
