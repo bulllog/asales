@@ -4,14 +4,20 @@ import jinja2
 import os
 import webapp2
 
-
 JINJA_ENVIRONMENT = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.join(os.path.dirname(__file__), '../templates')),
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
 
 class PyBase(webapp2.RequestHandler):
-
+ 
+    categories = ['men', 'women', 'kids', 'electronics']
+    print categories
+    subcategories = [
+        'apparels', 'footwear', 'beauty', 'accessories',
+        'mobiles & tablets', 'computers & laptops', 'home appliances', 'camera'
+    ]
+    
     """Implemented in the inhereted files."""
     def get(self):
         pass
