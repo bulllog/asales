@@ -10,11 +10,14 @@ handlers:
 - url: /styles
   static_dir: static/styles
 
+- url: /js/closure-lib
+  static_dir: static/js/closure-library
+
 - url: /images
   static_dir: static/images
 
 - url: /js
-  static_dir: ../../../closure/closure-library/closure/goog
+  static_dir: static/js
 
 - url: .*
   script: asales.app

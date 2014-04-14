@@ -1,7 +1,7 @@
-#This file contain all possible values for subcategories.
-
+# This file contain all possible values for subcategories.
 
 from protorpc import messages
+
 
 class SubCategory(messages.Enum):
     """Enum for subcategory"""

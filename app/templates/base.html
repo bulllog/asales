@@ -1,42 +1,40 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html language='en' xmlns='http://www.w3.org/1999/xhtml'>
   <head>
+    <script type='text/javascript' src='/js/closure-lib/closure/goog/base.js'></script>
     <script type='text/javascript' src='/js/base.js'></script>
-    <script>
-      goog.require('goog.fx.Dragger');
-      goog.require('goog.dom');
-      goog.require('goog.style');
-    </script>
     <link rel='stylesheet' type='text/css' href='/styles/asales.css' />
   </head>
   <body>
     {% block header %}
       {% block headerbar %}
         <div id='asales-header-bar'>
-          <a id='asales-logo' href='/'><img src='/images/asales_logo.jpg' alt='Google'></a>
-            <form id='asales-search' action='/search' method='GET'>
+          <a id='asales-logo' href='/'><img src='/images/asales_logo.jpg' alt='Google'/></a>
+            <form id='asales-search' action='/search' method='get'>
               <input type='text' name='asales-search-box' id='asales-search-box' value='' placeholder='Search'/>
               <button id='asales-search-button' class='button button-blue'>
-                <img src='/images/search.png' alt='Search'>
+                <img src='/images/search.png' alt='Search'/>
               </button>
             </form>
           </div>
           {% endblock %}
-        {% block menutabs%}
+          {% block menutabs%}
+            {% set category_map = {} %}
           <div id='asales-categories-tabs'>
           <ul id='asales-menu-tabs'>
             {% for category in categories%}
-              <li id='asales-{{category|lower}}-tab' class='tabs'>
-                <a href='/items/?category={{ category }}' class='asales-tabs'>{{category}}</a>
+              <li id='asales-{{ category|lower }}-tab' class='tabs'>
+                <a href='/items/?category={{ category }}' class='asales-tabs'>{{ category }}</a>
                 <ul id='asales-{{category|lower}}-submenu' >
                   {% if not loop.last %}
                     {% set selected_subcategories = subcategories[:4] %}
                   {% else %}
                     {% set selected_subcategories = subcategories[4:]%}
-                  {% endif %}
+                    {% endif %}
+                  {% set category_map[category] = selected_subcategories %}
                   {% for subcategory in selected_subcategories %}
                     <li>
-                      <a href='/items/?category={{category}}&subcategory={{subcategory}}'>{{subcategory}}</a>
+                      <a href='/items/?category={{ category }}&subcategory={{ subcategory }}'>{{ subcategory }}</a>
                     </li>
                   {% endfor %}
                 </ul>
@@ -52,5 +50,6 @@
 </html>
 <script>
   {% block jsblock %}
+  var baseFunc = new asales.base("{{ category_map }}");
   {% endblock %}
 </script>
