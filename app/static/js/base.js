@@ -3,27 +3,28 @@ goog.provide('asales.base');
 goog.require('goog.dom');
 goog.require('goog.DiscountedItems');
 goog.require('goog.Items');
-goog.require('goog.object');
+goog.require('goog.array');
 
 
 /**
- * Map of categories and their respective subcategories.
- * @type {Object.<string, Object.<string>>}
+ * An array of categories.
+ * @type {Array.<string>}
  */
-asales.base.categoriesMap = null;
+asales.base.categories = null;
 
 
 
 /**
  * Initializes all the objects.
+ * @param {Array.<string>} An array of categories.
  * @constructor
  * @export
  */
-asales.base = function(categoriesMap) {
- asales.base.categoriesMap = categoriesMap;
+asales.base = function(categories) {
+ asales.base.categories = categories;
  var discountedItemsEl = goog.dom.getElement('asales-discounted-items');
  if (discountedItemsEl) {
-   goog.object.forEach(categoriesMap, function(category, subcategories) {
+   goog.array.forEach(categories, function(category) {
      var discountedItemsObj = new DiscountedItems(category);
    });
  }
