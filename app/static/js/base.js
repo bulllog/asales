@@ -1,16 +1,9 @@
 goog.provide('asales.base');
 
 goog.require('goog.dom');
-goog.require('goog.DiscountedItems');
-goog.require('goog.Items');
+goog.require('asales.DiscountedItems');
+//goog.require('asales.Items');
 goog.require('goog.object');
-
-
-/**
- * Map of categories and their respective subcategories.
- * @type {Object.<string, Object.<string>>}
- */
-asales.base.categoriesMap = null;
 
 
 
@@ -19,12 +12,12 @@ asales.base.categoriesMap = null;
  * @constructor
  * @export
  */
-asales.base = function(categoriesMap) {
- asales.base.categoriesMap = categoriesMap;
+asales.base = function(categories) {
+ asales.base.categories = categories;
  var discountedItemsEl = goog.dom.getElement('asales-discounted-items');
  if (discountedItemsEl) {
-   goog.object.forEach(categoriesMap, function(category, subcategories) {
-     var discountedItemsObj = new DiscountedItems(category);
+   goog.object.forEach(categories, function(category) {
+     var discountedItemsObj = new asales.DiscountedItems(category);
    });
  }
 
@@ -34,3 +27,6 @@ asales.base = function(categoriesMap) {
  }
 };
 
+
+// Ensures the symbol will be visible after compiler renaming.
+goog.exportSymbol('asales.base', asales.base);

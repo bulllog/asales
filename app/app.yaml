@@ -10,8 +10,8 @@ handlers:
 - url: /styles
   static_dir: static/styles
 
-- url: /js/closure-lib
-  static_dir: static/js/closure-library
+- url: /closure
+  static_dir: ../../closure-library/closure
 
 - url: /images
   static_dir: static/images
