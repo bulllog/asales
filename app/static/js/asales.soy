@@ -1,0 +1,46 @@
+/**
+ * @fileoverview This file contains all soy templates.
+ */
+
+{namespace asales.templates}
+
+/**
+ * Says hello to the world.
+ */
+{template .helloWorld}
+  Hello world!
+{/template}
+
+/**
+ * Render discounted items.
+ * @param items Items
+ * @param category Category
+ */
+{template .discountedItems}
+  <ul class='shub-discounted-items carousel-main'>
+    {foreach $item in $items}
+      {call .discountedItem}
+	{param item: $item /}
+	{param category: $category /}
+      {/call}
+    {/foreach}
+  </ul>
+{/template}
+
+
+/**
+ * Render each item.
+ * @param item Item to be rendered.
+ * @param category Category.
+ */
+{template .discountedItem}
+  <li class='asales-discounted-item carousel-tile'>
+    <a href='/item' class='asales-discounted-image'>
+      <img src='/images/{$category}/{$item.name}.jpg' alt='Item'>
+    </a>
+    /*<p>Actual Cost: { $item.price }</p>*/
+    /*<p>Discount: {$item.discount}</p>*/
+    /*<p>Discounted Cost: {$item.discounted_price}</p>*/
+    /*<input type='button' class='asales-add-to-cart-btn button button-blue' value='Add to Cart'>*/
+  </li>
+{/template}
