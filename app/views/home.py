@@ -13,7 +13,7 @@ class Home(pybase.PyBase):
         """ Overrided function of base class a handle get request"""
         #item_obj = items.Item()
         #item_obj.category = category_model.Category.MEN
-        #item_obj.subcategory = subcategory_model.SubCategory.CLOTHING
+        #item_obj.subcategory = subcategory_model.SubCategory.FOOTWEAR
         #item_obj.name = 'loafers'
         #item_obj.price = 500
         #item_obj.brand_name = 'Reebok'

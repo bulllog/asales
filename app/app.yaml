@@ -13,6 +13,9 @@ handlers:
 - url: /closure
   static_dir: ../../closure-library/closure
 
+- url: /closure-templates
+  static_dir: ../../closure-templates
+
 - url: /images
   static_dir: static/images
 

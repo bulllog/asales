@@ -11,9 +11,11 @@ payment = payment.css
 popup = popup.css
 slider = slider.css
 table = table.css
+carousel = carousel.css
 
 
-files = ${base} ${components} ${home} ${payment.css} ${components} ${items} ${table} ${popup} ${slider} ${filter}
+
+files = ${base} ${components} ${home} ${payment.css} ${components} ${items} ${table} ${popup} ${slider} ${filter} ${carousel}
 
 
 asales.css: ${files}

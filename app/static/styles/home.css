@@ -10,10 +10,12 @@
 #asales-kids-discounted-items,
 #asales-electronics-discounted-items {
   border: 1px solid grey;
-  width: 60%;
+  height: 285px;
   margin-left: 10%;
-  height: 350px;
+  padding-left: 0px;
   position: relative;
+  width: 80%;
+  max-width: 80%;
 }
 
 .asales-discounted-image {
