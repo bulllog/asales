@@ -5,7 +5,7 @@
 
 goog.provide('asales.api');
 
-goog.require('goog.events.listen');
+goog.require('goog.events');
 goog.require('goog.net.EventType');
 goog.require('goog.net.XhrIo');
 
@@ -17,7 +17,7 @@ goog.require('goog.net.XhrIo');
  * @param {function(Object)=} opt_successCallback The success callback function.
  */
 asales.api.getItems = function(
-    category, subcategory, isDiscounted=false, opt_successCallback) {
+    category, subcategory, isDiscounted, opt_successCallback) {
   var url = '/items/getItems';
   var xhrObj = new goog.net.XhrIo();
   var params = {

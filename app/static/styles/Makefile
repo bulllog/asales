@@ -12,11 +12,8 @@ popup = popup.css
 slider = slider.css
 table = table.css
 
-
-files = ${base} ${components} ${home} ${payment.css} ${components} ${items} ${table} ${popup} ${slider} ${filter}
-
+files = ${base} ${components} ${home} ${payment} ${components} ${items} ${table} ${popup} ${slider} ${filter}
 
 asales.css: ${files}
 	cat > $@ $^
-
 

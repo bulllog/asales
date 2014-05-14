@@ -1,9 +1,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html language='en' xmlns='http://www.w3.org/1999/xhtml'>
   <head>
-    <script type='text/javascript' src='/js/closure-lib/closure/goog/base.js'></script>
-    <script type='text/javascript' src="/js/asales-deps.js"></script>
-    <script type='text/javascript' src='/js/base.js'></script>
+    <script type='text/javascript' src='/closure-library/closure/goog/base.js'></script>
+    <script type='text/javascript' src="/js/base.js"></script>
     <link rel='stylesheet' type='text/css' href='/styles/asales.css' />
   </head>
   <body>
@@ -49,6 +48,6 @@
 </html>
 <script>
   {% block jsblock %}
-  var baseFunc = new asales.base("{{ categories }}");
+    asales.base("{{ categories }}");
   {% endblock %}
 </script>

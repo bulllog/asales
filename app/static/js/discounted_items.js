@@ -7,7 +7,7 @@
 goog.provide('asales.DiscountedItems');
 
 goog.require('asales.api');
-goog.require('asales.templates');
+//goog.require('asales.templates');
 goog.require('goog.dom');
 goog.require('goog.soy');
 
@@ -17,7 +17,7 @@ goog.require('goog.soy');
  * @param {string} category The category whose discounted items are required.
  * @constructor
  */
-asales.DsicountedItems = function(category) {
+asales.DiscountedItems = function(category) {
   this.category_ = category;
   this.getDiscountedItems_();
 };
@@ -27,7 +27,7 @@ asales.DsicountedItems = function(category) {
  * Gets the discounted items for the category.
  * @private
  */
-asales.getDiscountedItems_ = function() {
+asales.DiscountedItems.prototype.getDiscountedItems_ = function() {
   var successCallback = function(discountedItems) {
     discountedItems.category = this.category_;
     var soyObj = goog.soy.Renderer();

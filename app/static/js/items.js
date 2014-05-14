@@ -9,7 +9,8 @@ goog.provide('asales.Items');
 
 goog.require('goog.dom');
 goog.require('goog.soy');
-goog.require('asales.templates');
+goog.require('goog.Uri');
+//goog.require('asales.templates');
 
 
 
@@ -17,5 +18,8 @@ goog.require('asales.templates');
  * @constructor
  */
 asales.Items = function() {
-  
+  var uriObj = goog.Uri.create(window.location);
+  this.category = '';
+  this.subcategory = '';
+  this.isDiscounted = false;
 };
