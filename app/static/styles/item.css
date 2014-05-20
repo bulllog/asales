@@ -1,0 +1,29 @@
+.asales-left-aligned {
+  float: left;
+}
+
+.asales-right-aligned {
+  float: right;
+  text-align: center;
+  margin-top: 4%;
+  padding-right: 5%;
+  font-weight: bold;
+}
+
+#asales-item-image-and-details-container {
+  margin-top: 10%;
+  border: black;
+  border-style: solid;
+  border-width: 2px;
+  margin-left: 10%;
+  height: 500px;
+}
+
+.asales-item-details {
+  margin-bottom: 5%;
+}
+
+#asales-item-description {
+  margin-left: 10%;
+  margin-top: 2%;
+}
