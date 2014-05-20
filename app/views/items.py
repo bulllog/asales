@@ -5,8 +5,12 @@ import pybase
 
 class Items(pybase.PyBase):
     def get(self):
-        """ Overrided function of base class o handle get request"""
+        """ Overrided function of base class to handle get request """
+        categories = self.categories
+        subcategories = self.subcategories
         template_value = {
+                'categories': categories,
+                'subcategories': subcategories,
                 'items': [{
                     'name': 'Loafers',
                     'brand_name': 'Woodland',

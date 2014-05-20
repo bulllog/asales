@@ -84,7 +84,6 @@
 					  <div class='popup-info'>
 						<div class='title'>{{ item['name'] }}</div>
 						<div class='brand-name'>Brand Name:  {{item['brand_name']}}</div>
-						<div class='description'>{{item['desc']}}</div>
 					  </div>
 					  <div class='item-icon'><img src='/images/{{item['icon']}}.jpg'></img></div>
 					</div>
@@ -122,12 +121,11 @@
   {% endblock %}
 
   {% block jsblock %}
-    
-  var $ = goog.dom.getElement;
+    var $ = goog.dom.getElement;
     // SLIDER EXAMPLE
     //================
 
-  var slider1 = new goog.fx.Dragger($('slider_min'), null,
+    var slider1 = new goog.fx.Dragger($('slider_min'), null,
 	new goog.math.Rect(0, 0, 378, 0));
 
     var slider2 = new goog.fx.Dragger($('slider_max'), null,
@@ -143,5 +141,4 @@
 	e.target.innerHTML = percent;
 	another_mob.setLimits(new_limit);
 	})});
-
   {% endblock %}

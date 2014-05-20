@@ -246,10 +246,12 @@ ul {
 #asales-kids-discounted-items,
 #asales-electronics-discounted-items {
   border: 1px solid grey;
-  width: 60%;
+  height: 285px;
   margin-left: 10%;
-  height: 350px;
+  padding-left: 0px;
   position: relative;
+  width: 80%;
+  max-width: 80%;
 }
 
 .asales-discounted-image {
@@ -260,7 +262,7 @@ ul {
   height: 300px;
   width: 35%;
   float: left;
-}
+} 
 
 .asales-discounted-item-info {
   float: right;
@@ -276,6 +278,13 @@ ul {
   height: 50px;
   font-size: large;
 }
+.asales-payment-content {
+  font-style: oblique;
+  font-size: x-large;
+  color: darkred;
+  text-align: center;
+}
+
 .view-pane {
   display: flex;
   margin-top: 20px;
@@ -419,6 +428,34 @@ ul {
 .tile-desc {
   max-width: 185px;
 }
+.asales-left-aligned {
+  float: left;
+}
+
+.asales-right-aligned {
+  float: right;
+  text-align: center;
+  margin-top: 4%;
+  padding-right: 5%;
+}
+
+#asales-item-image-and-details-container {
+  margin-top: 10%;
+  border: black;
+  border-style: solid;
+  border-width: 2px;
+  margin-left: 10%;
+  height: 500px;
+}
+
+.asales-item-details {
+  margin-bottom: 5%;
+}
+
+#asales-item-description {
+  margin-left: 10%;
+  margin-top: 2%;
+}
 /*This file contain all the style for table.*/
 
 .data-table {  width: 100%;
@@ -532,7 +569,6 @@ ul {
 }
 /*stylesheets for slider with two mobs.*/
 
-
 .slider {
   position: relative;
   width: 15px;
@@ -543,7 +579,6 @@ ul {
   text-align: end;
   border: 1px solid #999;
   cursor: default;
-
 }
 
 #slider_base {
@@ -635,5 +670,30 @@ ul {
   margin: 20px;
   margin-bottom: 10px;
 
+}
+
+/*This file contain styles for carousel.*/
+
+.carousel-main {
+  display: flex;
+  height: 100%;
+  max-width: 100%;
+  padding: 0px;
+  width: 100%;
+}
+
+.carousel-tile {
+  border: 1px solid rgb(0, 214, 255);
+  height: inherit;
+  width: 30%;
+  transition-property: width;
+  transition-duration: 2s;
+  -webkit-transition-property: width;
+  -webkit-transition-duration: 2s;
+}
+
+.carousel-tile img {
+  height: 100%;
+  width: 100%;
 }
 

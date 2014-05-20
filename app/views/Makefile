@@ -3,8 +3,11 @@
 
 pybase = pybase.py
 home = home.py
+items = items.py
+item_details = item_details.py
+payment = payment.py
 
-files = ${pybase} ${home}
+files = ${pybase} ${home} ${items} ${item_details} ${payment}
 
-views: ${files}
+views.py: ${files}
 	cat > $@ $^

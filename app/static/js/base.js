@@ -7,6 +7,7 @@ goog.provide('asales.base');
 
 goog.require('goog.dom');
 goog.require('asales.DiscountedItems');
+<<<<<<< HEAD
 goog.require('asales.Items');
 goog.require('goog.array');
 
@@ -18,6 +19,12 @@ goog.require('goog.array');
 asales.base.categories = null;
 
 
+=======
+//goog.require('asales.Items');
+goog.require('goog.object');
+
+
+>>>>>>> eb702d4c134cec3a881de18b73fefad3390bb10d
 
 /**
  * Initializes all the objects.
@@ -29,7 +36,11 @@ asales.base = function(categories) {
  asales.base.categories = categories;
  var discountedItemsEl = goog.dom.getElement('asales-discounted-items');
  if (discountedItemsEl) {
+<<<<<<< HEAD
    goog.array.forEach(categories, function(category) {
+=======
+   goog.object.forEach(categories, function(category) {
+>>>>>>> eb702d4c134cec3a881de18b73fefad3390bb10d
      var discountedItemsObj = new asales.DiscountedItems(category);
    });
  }
@@ -40,3 +51,6 @@ asales.base = function(categories) {
  }
 };
 
+
+// Ensures the symbol will be visible after compiler renaming.
+goog.exportSymbol('asales.base', asales.base);

@@ -1,6 +1,5 @@
 /*stylesheets for slider with two mobs.*/
 
-
 .slider {
   position: relative;
   width: 15px;
@@ -11,7 +10,6 @@
   text-align: end;
   border: 1px solid #999;
   cursor: default;
-
 }
 
 #slider_base {
