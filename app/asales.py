@@ -1,4 +1,4 @@
-# This is main handler for application.
+# This file contains urls of the application.
 
 import webapp2
 
@@ -13,5 +13,6 @@ app = webapp2.WSGIApplication([
     ('/items', items.Items),
     ('/getitems', get_items.GetItems),
     ('/item/details', item_details.ItemDetails),
-    ('/payment', payment.Payment)
-            ], debug=True) 
+    ('/payment', payment.Payment),
+    ('/add/items', add_items.AddItems)
+    ], debug=True)

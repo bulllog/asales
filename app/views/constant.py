@@ -5,19 +5,19 @@ from models import subcategory_model
 
 class Constant():
   categories = {
-    'men': category_model.Category.MEN,
-    'women': category_model.Category.WOMEN,
-    'kids': category_model.Category.KIDS,
-    'electronics': category_model.Category.ELECTRONICS
+    'Men': category_model.Category.MEN,
+    'Women': category_model.Category.WOMEN,
+    'Kids': category_model.Category.KIDS,
+    'Electronics': category_model.Category.ELECTRONICS
   }
 
   subcategories = {
-    'apparels': subcategory_model.SubCategory.APPARELS,
-    'footwear': subcategory_model.SubCategory.FOOTWEAR,
-    'beauty': subcategory_model.SubCategory.BEAUTY,
-    'accesories': subcategory_model.SubCategory.ACCESSORIES,
-    'mobile & tablet': subcategory_model.SubCategory.MOBILE_TABLET,
-    'computer & laptop': subcategory_model.SubCategory.COMPUTER_LAPTOP,
-    'home appliances': subcategory_model.SubCategory.HOME_APPLIANCES,
-    'camera': subcategory_model.SubCategory.CAMERA
+    'Apparels': subcategory_model.SubCategory.APPARELS,
+    'Footwear': subcategory_model.SubCategory.FOOTWEAR,
+    'Beauty': subcategory_model.SubCategory.BEAUTY,
+    'Accessories': subcategory_model.SubCategory.ACCESSORIES,
+    'Mobiles And Tablets': subcategory_model.SubCategory.MOBILE_TABLET,
+    'Computers And Laptops': subcategory_model.SubCategory.COMPUTER_LAPTOP,
+    'Home Appliances': subcategory_model.SubCategory.HOME_APPLIANCES,
+    'Camera': subcategory_model.SubCategory.CAMERA
  }
