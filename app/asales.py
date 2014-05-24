@@ -2,6 +2,7 @@
 
 import webapp2
 
+from views import add_items
 from views import get_items
 from views import home
 from views import item_details

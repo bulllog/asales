@@ -10,7 +10,7 @@ class AddItems(webapp2.RequestHandler):
   """Adds the items to the database."""
 
   def get(self):
-    with open('asales_database.csv', 'rb') as data_file:
+    with open('../asales_database.csv', 'rb') as data_file:
       fileReader = csv.DictReader(data_file, delimeter=';')
       for item_info in fileReader:
         has_discount = False

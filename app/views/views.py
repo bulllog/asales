@@ -10,15 +10,13 @@ JINJA_ENVIRONMENT = jinja2.Environment(
     autoescape=True)
 
 class PyBase(webapp2.RequestHandler):
- 
-    categories = ['men', 'women', 'kids', 'electronics']
-    print categories
+
+    categories = ['Men', 'Women', 'Kids', 'Electronics']
     subcategories = [
-        'apparels', 'footwear', 'beauty', 'accessories',
-        'mobiles & tablets', 'computers & laptops', 'home appliances', 'camera'
+        'Apparels', 'Footwear', 'Beauty', 'Accessories', 'Mobiles And Tablets',
+        'Computers And Laptops', 'Home Appliances', 'Camera'
     ]
-    
-    """Implemented in the inhereted files."""
+
     def get(self):
         pass
 
@@ -28,7 +26,6 @@ class PyBase(webapp2.RequestHandler):
     def renderTemplate(self, template_name, opt_template_values={}):
         template = JINJA_ENVIRONMENT.get_template(template_name)
         self.response.write(template.render(opt_template_values))
-
 #Handler for home page.
 
 from models import category_model
@@ -42,18 +39,6 @@ import constant
 class Home(pybase.PyBase):
     def get(self):
         """ Overrided function of base class a handle get request"""
-        #item_obj = items.Item()
-        #item_obj.category = category_model.Category.MEN
-        #item_obj.subcategory = subcategory_model.SubCategory.FOOTWEAR
-        #item_obj.name = 'loafers'
-        #item_obj.price = 500
-        #item_obj.brand_name = 'Reebok'
-        #item_obj.has_discount = True
-        #item_obj.discount = 50
-        #item_obj.discounted_price = 250
-        #item_obj.description = 'this is cool stuff and blah blah :P'
-        #item_obj.put()
-        
         categories = self.categories
         subcategories = self.subcategories
         template_value = {
@@ -117,7 +102,9 @@ class ItemDetails(pybase.PyBase):
   def get(self):
     item = {
         'name': 'Dummy Item', 'brand_name': 'Dummy Brand',
-        'price': 'Dummy Cost', 'description': 'Dummy Description'
+        'price': 'Dummy Cost', 'description': 'Dummy Description',
+        'icon': 'woodland', 'categories': self.categories,
+        'subcategories': self.subcategories
     }
     self.renderTemplate('item.html', item)
 
@@ -132,3 +119,72 @@ class Payment(pybase.PyBase):
   def get(self):
     self.renderTemplate(payment.html)
 
+"""This file reads the data from CSV file and stores all the data in NDB datastore."""
+
+import csv
+import webapp2
+
+from models import items
+
+
+class AddItems(webapp2.RequestHandler):
+  """Adds the items to the database."""
+
+  def get(self):
+    with open('asales_database.csv', 'rb') as data_file:
+      fileReader = csv.DictReader(data_file, delimeter=';')
+      for item_info in fileReader:
+        has_discount = False
+        if item_info['discount']:
+          has_discount = True
+        itemObj = items.Item(
+            category=item_info['category'],
+            subcategory=item_info['subcategory'], name=item_info['name'],
+            price=item_info['price'], brand_name=item_info['brand_name'],
+            has_discount=has_discount, discount=item_info['discount'],
+            discounted_price=item_info['discounted_price'],
+            description=item_info['description'])
+        itemObj.put()
+#API handler for request to get items.
+
+from api import items_api
+
+import json
+import pybase
+
+
+class GetItems(pybase.PyBase):
+  """Handler to fetch the items on the given request."""
+  item_labels_ = [
+      'name', 'brand_name', 'price', 'is_discounted', 'discount',
+      'discounted_price', 'description'
+  ]
+
+  def get(self):
+    """Overrided function of base class to handle get request."""
+    selected_item = []
+    is_discounted = self.request.get('is_discounted')
+    category = self.request.get('category')
+    subcategory = self.request.get('subcategory')
+    items_obj = items_api.ItemsApi()
+    items = items_obj.getItems(category, subcategory, is_discounted)
+    for item in items:
+      selected_item.append(self.formatQueryResult(item))
+
+    response = {
+        'items': selected_item,
+        'status': 'success'
+        }
+    self.response.out.write(json.dumps(response))
+
+  def formatQueryResult(self, item_obj):
+    """Formate the query object according to the given label."""
+    item = {}
+    item[self.item_labels_[0]] = item_obj.name
+    item[self.item_labels_[1]] = item_obj.brand_name
+    item[self.item_labels_[2]] = item_obj.price
+    item[self.item_labels_[3]] = item_obj.has_discount
+    item[self.item_labels_[4]] = item_obj.discount
+    item[self.item_labels_[5]] = item_obj.discounted_price
+    item[self.item_labels_[6]] = item_obj.description
+    return item
