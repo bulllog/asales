@@ -19,7 +19,7 @@ class Item(ndb.Model):
   has_discount = ndb.BooleanProperty()
   discount = ndb.FloatProperty()
   discounted_price = ndb.IntegerProperty()
-  description = ndb.StringProperty()
+  description = ndb.TextProperty()
 
   def __getitem__(self, attr):
     """Returns the value of the given attr property."""
