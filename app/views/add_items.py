@@ -23,7 +23,7 @@ class AddItems(webapp2.RequestHandler):
       for item_info in fileReader:
         has_discount = False
         logging.info('Item Details: ', item_info)
-        if item_info['discount']:
+        if float(item_info['discount']):
           has_discount = True
 
         for key, value in categories_map.iteritems():
