@@ -22,7 +22,7 @@ class AddItems(webapp2.RequestHandler):
       fileReader = csv.DictReader(data_file, delimiter=';')
       for item_info in fileReader:
         has_discount = False
-        logging.info('Item Details: ', item_info)
+        logging.info('Item Details: %s', str(item_info))
         if float(item_info['discount']):
           has_discount = True
 
