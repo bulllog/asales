@@ -1,0 +1,26 @@
+/*Styles for discounted items on home.*/
+
+.discounted-item-info {
+  background: blue;
+  display: none;
+  opacity: 0.7;
+  position: absolute;
+  top: 159px;
+}
+
+.discounted-item {
+  margin: 10px;
+  color: whitesmoke;
+  font-family: sans-serif, arial;
+}
+
+.discounted-item-left-pane .discounted-item {
+  float: right;
+}
+
+.discounted-item-right-pane,
+.discounted-item-left-pane {
+  position: relative;
+  margin: 4.4%;
+  width: 50%;
+}
