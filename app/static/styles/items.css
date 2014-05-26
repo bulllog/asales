@@ -4,7 +4,7 @@
 }
 
 .tool-bar {
-  height: 50px;
+  height: 40px;
   margin-top: 50px;
   border-bottom: 1px solid #e5e5e5;
 }
@@ -25,7 +25,7 @@
 }
 
 .asales-table {
-  margin-top: 15px;
+  padding: 12px;
 }
 
 .asales-table > table {
@@ -54,11 +54,11 @@
   -webkit-box-shadow: 0px 1px 5px 1px #888888;
 }
 
-#list-view {
+#grid-view {
   display: none;
 }
 
-#grid-view {
+.items-info-container {
   width: 100%;
   min-height: 26em;
   background: rgba(0,0,0,.2);
@@ -140,4 +140,9 @@
 
 .tile-desc {
   max-width: 185px;
+}
+
+.items-page-info {
+  float: left;
+  margin: 15px;
 }

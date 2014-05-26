@@ -2,7 +2,7 @@ goog.provide('asales.base');
 
 goog.require('goog.dom');
 goog.require('asales.DiscountedItems');
-//goog.require('asales.Items');
+goog.require('asales.Items');
 goog.require('goog.object');
 
 
@@ -21,9 +21,9 @@ asales.base = function(categories) {
    });
  }
 
- var itemsEl = goog.dom.getElement('asales-items');
+ var itemsEl = goog.dom.getElement('asales-items-page');
  if (itemsEl) {
-   var itemsObj = new Items();
+   var itemsObj = new asales.Items();
  }
 };
 

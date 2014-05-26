@@ -29,18 +29,113 @@
 
 
 /**
- * Render each item.
+ * Render each discounted item.
  * @param item Item to be rendered.
  * @param category Category.
  */
 {template .discountedItem}
   <li class='asales-discounted-item carousel-tile'>
-    <a href='/item' class='asales-discounted-image'>
-      <img src='/images/{$category}/{$item.name}.jpg' alt='Item'>
+    <a href='/{$item}' class='asales-discounted-image'>
+      /*<img src='/images/{$category}/{$item.name}.jpg' alt='Item'>*/
+      <img src='images/{$category}/Casmara Mask.jpg' id='discounted-item-image'>
     </a>
-    /*<p>Actual Cost: { $item.price }</p>*/
-    /*<p>Discount: {$item.discount}</p>*/
-    /*<p>Discounted Cost: {$item.discounted_price}</p>*/
-    /*<input type='button' class='asales-add-to-cart-btn button button-blue' value='Add to Cart'>*/
+    <div class='discounted-item-info'>
+      <div class='discounted-item-left-pane'>
+	<div class='discounted-item discounted-item-name'>Product Name : {$item.name}</div>
+	<div class='discounted-item discounted-item-price'> Price : {$item.price} </div>
+      </div>
+      <div class='discounted-item-right-pane'>
+	<div class='discounted-item discounted-item-discount'> Discount : {$item.discount}% </div>
+	<div class='discounted-item discount-item-discounted-price'> Discounted Price : {$item.discounted_price} </div>
+      </div>
+    </div>
   </li>
+{/template}
+
+
+/**
+ * Render table with items.
+ * @param properties Column ids.
+ * @param columns  Column names.
+ * @param items Items.
+ * @param category Category.
+ * @param subcategory SubCategory.
+ */
+{template .renderTableItems}
+  <table class='data-table'>
+    <thead class='data-table-head'>
+      <tr class='data-table-header'>
+	{foreach $property in $properties}
+	  <th>
+	    {$columns[$property]}
+	  </th>
+	{/foreach}
+      </tr>
+    </thead>
+    <tbody>
+      {foreach $item in $items}
+	<tr class='data-table-tr'>
+	  {foreach $property in $properties}
+	    <td>
+	      {if $property == 'icon'}
+		<img src='images/{$category}/{$subcategory}/{$item.name}' alt={$item.name}></img>
+	      {else}
+		{$item[$property]}
+	      {/if}
+	    </td>
+	  {/foreach}
+	  {call .renderPopup}
+	    {param item: $item/}
+	  {/call}
+	</tr>
+      {/foreach}
+    </tbody>
+  </table>
+{/template}
+
+
+/**
+ * Render popup.
+ * @param item Item
+ */
+{template .renderPopup}
+  <div class='asales-detail-popup' id='pop-up-{$item['name']}'>
+    <div class='popup-tool-tip'>
+      <div class='popup-info'>
+	  <div class='title product-info'>{$item['name']}</div>
+	  <div class='brand-name product-info'>Brand : {$item['brand_name']}</div>
+	  <div class='product-info'>Price : {$item['price']}</div>
+      </div>
+      <div class='item-icon'><img src='/images/{$item['icon']}.jpg'></img></div>
+    </div>
+  </div>
+{/template}
+
+
+/**
+ * Render table with items.
+ * @param items Items.
+ */
+{template .renderGridItems}
+  <div>
+    {foreach $item in $items}
+      <div class='tile'>
+	<div class='tile-header'>
+	  <div class='tile-title'>
+	    <span> Product Name : </span>{$item['name']}
+	  </div>
+	  <div class='tile-price'>
+	    <span>Price : </span>{$item['price']}
+	  </div>
+	</div>
+	<div class='tile-icon'>
+	  <img src='/images/{$item['icon']}.jpg'></img>
+	</div>
+	<div class='tile-slider'>
+	  <div class='tile-slider-info'>
+	  </div>
+	</div>
+      </div>
+    {/foreach}
+  </div>
 {/template}

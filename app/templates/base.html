@@ -35,7 +35,7 @@
 		    {% endif %}
 		  {% for subcategory in selected_subcategories %}
 		    <li>
-		      <a href='/items/?category={{ category }}&subcategory={{ subcategory }}'>{{ subcategory }}</a>
+		      <a href='/items?category={{ category }}&subcategory={{ subcategory }}'>{{ subcategory }}</a>
 		    </li>
 		  {% endfor %}
 		</ul>
@@ -49,9 +49,12 @@
     {% endblock %}
     <script type="text/javascript" src="/closure-templates/soyutils_usegoog.js"></script>
     <script>
-      {% block jsblock %}
+      {% block basejsblock %}
 	var baseFunc = new asales.base(['men']);
       {% endblock %}
+      
+      {% block jsblock%}
+      {% endblock%}
     </script>
   </body>
 </html>

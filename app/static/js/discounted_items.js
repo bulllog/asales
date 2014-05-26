@@ -54,10 +54,15 @@ asales.DiscountedItems.prototype.getDiscountedItems_ = function() {
  * @param{goog.events.event} e Event object
  */
 asales.DiscountedItems.handleHoverOnTile = function(e) {	
-  var targetTile = e.target.parentElement.parentElement;
+  var targetTile = e.target.id == 'discounted-item-image' ?
+      e.target.parentElement.parentElement : (e.target.className == 'asales-discounted-image' ?
+      e.target.parentElement : e.target);
   var itemEls = goog.dom.getElementsByClass('carousel-tile');
   var changedWidth = 100;
   var selectedIndex = goog.array.indexOf(itemEls, targetTile);
+  if (selectedIndex == -1) {
+    return;
+  }
   goog.array.forEach(itemEls, function(item) {
     var currentIndex = goog.array.indexOf(itemEls, item);
     var diff = Math.abs(selectedIndex - currentIndex);
@@ -65,4 +70,9 @@ asales.DiscountedItems.handleHoverOnTile = function(e) {
     item.style.width = computedWidth > 0 ? computedWidth.toString() + '%' : '20%';
   });
   targetTile.style.width = '300%';
+  
+  goog.array.forEach(goog.dom.getElementsByClass('discounted-item-info'), function(item) {
+    item.style.display = 'none';
+  })
+  targetTile.childNodes[1].style.display = 'block';
 };

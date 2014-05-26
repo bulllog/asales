@@ -7,13 +7,14 @@ from models import subcategory_model
 from views import constant
 
 class ItemsApi(ndb.Model):
-  def getItems(self, category = None, subcategory = None, is_discounted = False):
+  def getItems(self, category = None, subcategory = None, is_discounted = None):
     """ Queries the item data table on this basis of the given parameters."""
     Item = items.Item
     items_query = Item.query()
     print category
     
     if is_discounted:
+      print 'discounted'
       items_query = items_query.filter(Item.has_discount == True)
     
     if category:

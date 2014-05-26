@@ -284,7 +284,7 @@ ul {
 }
 
 .tool-bar {
-  height: 50px;
+  height: 40px;
   margin-top: 50px;
   border-bottom: 1px solid #e5e5e5;
 }
@@ -305,7 +305,7 @@ ul {
 }
 
 .asales-table {
-  margin-top: 15px;
+  padding: 12px;
 }
 
 .asales-table > table {
@@ -334,11 +334,11 @@ ul {
   -webkit-box-shadow: 0px 1px 5px 1px #888888;
 }
 
-#list-view {
+#grid-view {
   display: none;
 }
 
-#grid-view {
+.items-info-container {
   width: 100%;
   min-height: 26em;
   background: rgba(0,0,0,.2);
@@ -421,6 +421,11 @@ ul {
 .tile-desc {
   max-width: 185px;
 }
+
+.items-page-info {
+  float: left;
+  margin: 15px;
+}
 /*This file contain all the style for table.*/
 
 .data-table {  width: 100%;
@@ -443,7 +448,6 @@ ul {
 }
 
 .data-table-header th {
-  background: white;
   border-bottom: 1px solid #e5e5e5;
   empty-cells: show;
   font-size: 13px;
@@ -497,6 +501,7 @@ ul {
   border-radius: 8px;
   display:flex;
   height: 13em;
+  margin-left: 35%;
   opacity: 1;
   position: absolute;
   width: 40%;
@@ -518,9 +523,9 @@ ul {
 }
 
 .item-icon img {
-  width: 100%;
-  margin-top: 10%;
-  margin-left: -4%;
+  width: 85%;
+  margin-top: 4%;
+  margin-left: 3%;
   -webkit-box-shadow: 0px 0px 13px 0px rgb(43, 43, 201);
 }
 
@@ -665,3 +670,29 @@ ul {
   width: 100%;
 }
 
+/*Styles for discounted items on home.*/
+
+.discounted-item-info {
+  background: blue;
+  display: none;
+  opacity: 0.7;
+  position: absolute;
+  top: 159px;
+}
+
+.discounted-item {
+  margin: 10px;
+  color: whitesmoke;
+  font-family: sans-serif, arial;
+}
+
+.discounted-item-left-pane .discounted-item {
+  float: right;
+}
+
+.discounted-item-right-pane,
+.discounted-item-left-pane {
+  position: relative;
+  margin: 4.4%;
+  width: 50%;
+}

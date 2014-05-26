@@ -13,3 +13,70 @@ java\cf3  \cf4 -jar\cf3  \cf4 closure-templates/SoyToJsSrcCompiler.jar\cf3  \cf4
 \
 \
 }
+
+
+	      {foreach $item in $items }
+		    <tr class='data-table-tr'>
+		      {foreach $property in $properties }
+		      <td>
+			    {% if $property ==  "icon" %}
+			    <img src='/images/{ $item[$property] }.jpg'></img>
+			    {% else %}
+			      { $item[$property] }
+			    {% endif %}
+		      </td>
+		      { /foreach }
+		      <div class='asales-detail-popup' id='pop-up-{item['name']}'>
+			    <div class='popup-tool-tip'>
+			      <div class='popup-info'>
+				    <div class='title'>{ $item['name'] }</div>
+				    <div class='brand-name'>Brand Name:  {$item['brand_name']}</div>
+				    <div class='description'>{$item['desc']}</div>
+			      </div>
+			      <div class='item-icon'><img src='/images/{$item['icon']}.jpg'></img></div>
+			    </div>
+		      </div>
+		    </tr>
+	      { /foreach }
+
+
+
+
+
+
+		  <table class='data-table'>
+			<thead class='data-table-head'>
+			  <tr class='data-table-header'>
+				  {% for property in properties %}
+					<th>
+					  {{ columns[property] }}
+					</th>
+				  {% endfor %}
+				</tr>
+			</thead>
+			<tbody>
+			  {% for item in items %}
+				<tr class='data-table-tr'>
+				  {% for property in properties %}
+				  <td>
+					{% if property ==  "icon" %}
+					<img src='/images/{{ item[property] }}.jpg'></img>
+					{% else %}
+					  {{ item[property] }}
+					{% endif %}
+				  </td>
+				  {% endfor %}
+				  <div class='asales-detail-popup' id='pop-up-{{item['name']}}'>
+					<div class='popup-tool-tip'>
+					  <div class='popup-info'>
+						<div class='title'>{{ item['name'] }}</div>
+						<div class='brand-name'>Brand Name:  {{item['brand_name']}}</div>
+						<div class='description'>{{item['desc']}}</div>
+					  </div>
+					  <div class='item-icon'><img src='/images/{{item['icon']}}.jpg'></img></div>
+					</div>
+				  </div>
+				</tr>
+			  {% endfor %}
+			</tbody>
+		  </table>

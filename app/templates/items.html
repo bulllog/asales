@@ -1,10 +1,25 @@
 {% extends 'base.html' %}
   {% block body%}
+	<div id='asales-items-page'></div>
 	<div class='tool-bar'>
-	  <div id='list-view-button' class='button'>
+	  <div class='items-page-info'>
+	    <span id='selected_category'>{{selected_category}}</span>
+	    <span> > </span>
+	    {% if is_discounted%}
+	    <span id='discounted'>	
+	      Discounted Item
+	    </span>
+	    {% else %}
+	      <span id='selected_subcategory'>
+		{{selected_subcategory}}
+	      </span>
+	    {% endif %}
+	    </span>
+	  </div>
+	  <div id='list-view-button' class='button toggle-button button-active'>
 		<div class='list-icon'></div>
 	  </div>
-	  <div id='grid-view-button' class='button button-active'>
+	  <div id='grid-view-button' class='button toggle-button'>
 		<div class='grid-icon'></div>
 	  </div>
 	</div>
@@ -56,65 +71,12 @@
 	    </div>
 	  </div>
 	  <div id='right-pane'>
-		<div class='asales-table' id='list-view'>
-		  <table class='data-table'>
-			<thead class='data-table-head'>
-			  <tr class='data-table-header'>
-				  {% for property in properties %}
-					<th>
-					  {{ columns[property] }}
-					</th>
-				  {% endfor %}
-				</tr>
-			</thead>
-			<tbody>
-			  {% for item in items %}
-				<tr class='data-table-tr'>
-				  {% for property in properties %}
-				  <td>
-					{% if property ==  "icon" %}
-					<img src='/images/{{ item[property] }}.jpg'></img>
-					{% else %}
-					  {{ item[property] }}
-					{% endif %}
-				  </td>
-				  {% endfor %}
-				  <div class='asales-detail-popup' id='pop-up-{{item['name']}}'>
-					<div class='popup-tool-tip'>
-					  <div class='popup-info'>
-						<div class='title'>{{ item['name'] }}</div>
-						<div class='brand-name'>Brand Name:  {{item['brand_name']}}</div>
-						<div class='description'>{{item['desc']}}</div>
-					  </div>
-					  <div class='item-icon'><img src='/images/{{item['icon']}}.jpg'></img></div>
-					</div>
-				  </div>
-				</tr>
-			  {% endfor %}
-			</tbody>
-		  </table>
+		<div id='list-view' class='items-info-container'>
+		  <div class='asales-table'>
+		  </div>
 		</div>
-		<div id='grid-view'>
+		<div id='grid-view' class='items-info-container'>
 		  <div class='tile-container'>
-		    {% for item in items%}
-		      <div class='tile'>
-			<div class='tile-header'>
-			  <div class='tile-title'>
-			    <span> Product Name : </span>{{item['name']}}
-			  </div>
-			  <div class='tile-price'>
-			    <span>Price : </span>{{item['price']}}
-			  </div>
-			</div>
-			<div class='tile-icon'>
-			  <img src='/images/{{item['icon']}}.jpg'></img>
-			</div>
-			<div class='tile-slider'>
-			  <div class='tile-slider-info'>
-			  </div>
-			</div>
-		      </div>
-		    {% endfor %}
 		  </div>
 		</div>
 	  </div>

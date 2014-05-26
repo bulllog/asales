@@ -12,10 +12,10 @@ popup = popup.css
 slider = slider.css
 table = table.css
 carousel = carousel.css
+discounted_items = discounted_items.css
 
 
-
-files = ${base} ${components} ${home} ${payment.css} ${components} ${items} ${table} ${popup} ${slider} ${filter} ${carousel}
+files = ${base} ${components} ${home} ${payment.css} ${components} ${items} ${table} ${popup} ${slider} ${filter} ${carousel} ${discounted_items}
 
 
 asales.css: ${files}
