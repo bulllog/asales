@@ -10,15 +10,13 @@ JINJA_ENVIRONMENT = jinja2.Environment(
     autoescape=True)
 
 class PyBase(webapp2.RequestHandler):
- 
-    categories = ['men', 'women', 'kids', 'electronics']
-    print categories
+
+    categories = ['Men', 'Women', 'Kids', 'Electronics']
     subcategories = [
-        'apparels', 'footwear', 'beauty', 'accessories',
-        'mobiles & tablets', 'computers & laptops', 'home appliances', 'camera'
+        'Apparels', 'Footwear', 'Beauty', 'Accessories', 'Mobiles And Tablets',
+        'Computers And Laptops', 'Home Appliances', 'Camera'
     ]
-    
-    """Implemented in the inhereted files."""
+
     def get(self):
         pass
 
@@ -28,4 +26,3 @@ class PyBase(webapp2.RequestHandler):
     def renderTemplate(self, template_name, opt_template_values={}):
         template = JINJA_ENVIRONMENT.get_template(template_name)
         self.response.write(template.render(opt_template_values))
-

@@ -10,17 +10,15 @@
 	      Discounted Item
 	    </span>
 	    {% else %}
-	      <span id='selected_subcategory'>
-		{{selected_subcategory}}
-	      </span>
+	      <span id='selected_subcategory'>{{selected_subcategory}}</span>
 	    {% endif %}
 	    </span>
 	  </div>
 	  <div id='list-view-button' class='button toggle-button button-active'>
-		<div class='list-icon'></div>
+		<div class='list-icon' id='toggle-button-icon'></div>
 	  </div>
 	  <div id='grid-view-button' class='button toggle-button'>
-		<div class='grid-icon'></div>
+		<div class='grid-icon' id='toggle-button-icon'></div>
 	  </div>
 	</div>
 	<div class='view-pane'>
@@ -28,45 +26,6 @@
 	    <div class='filter-panel'>
 	      <div class='filter-title'> Filter Options </div>
 	      <div class='filter-options'>
-		<ul>
-		  <li class='brand-filter filter'>
-		    <ul class='filter-options'>
-		      <li class='options-title'>Choose Brand</li>
-		      <li class='option'>
-			<input type='checkbox'class='brand-option'><span>WoodLand</span>
-		      </li>
-		      <li class='option'>
-			<input type='checkbox'class='brand-option'><span>Reebok</span>
-		      </li>
-		    </ul>
-		  </li>
-		  <li class='discount-filter filter'>
-		    <ul class='filter-options'>
-		      <li class='options-title'>Discount</li>
-		      <li class='option'>
-			<input type='checkbox' class='discount-option'><span>Discounted</span>
-		      </li>
-		      <li class='option'>
-			<input type='checkbox' class='discount-option'><span>Non Discounted</span>
-		      </li>
-		    </ul>
-		  </li>
-		  <li class='price-filter filter'>
-		    <ul class='filter-options' >
-		      <li class='options-title'>Price</li>
-		      <li class='option' id='price-filter-tool'>
-			<div id="slider_base"></div>
-			<div class='price-controller'>
-			  <span id="slider_min" class='slider'>O</span>
-			  <span id='slider_max' class='slider'>O</span>
-			</div>
-		      </li>
-		      <li class='filter-price'>
-			<input type='textBox' class='min_value'>
-			<input type='textBox' class='max_value'>
-		      </li>
-		  </li>
-		</ul>
 	      </div>
 	    </div>
 	  </div>
@@ -84,7 +43,6 @@
   {% endblock %}
 
   {% block jsblock %}
-    
     var $ = goog.dom.getElement;
     // SLIDER EXAMPLE
     //================
@@ -105,5 +63,4 @@
 	e.target.innerHTML = percent;
 	another_mob.setLimits(new_limit);
 	})});
-
   {% endblock %}

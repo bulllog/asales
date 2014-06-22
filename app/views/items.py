@@ -15,23 +15,23 @@ class Items(pybase.PyBase):
         logging.info('items -> discount = ' + is_discounted + ' category = ' + selected_category + ' subcategory = ' + selected_subcategory)
         categories = self.categories
         subcategories = self.subcategories
-        items_obj = items_api.ItemsApi()
-        items = items_obj.getItems(selected_category, selected_subcategory, is_discounted)
-        print items
+        #items_obj = items_api.ItemsApi()
+        #items = items_obj.getItems(selected_category, selected_subcategory, is_discounted)
+        #print items
 
-        properties = [
-            'name', 'brand_name', 'price', 'discount', 'discounted_price', 'icon'
-            ]
+        #properties = [
+            #'name', 'brand_name', 'price', 'discount', 'discounted_price', 'icon'
+            #]
 
-        columns = {
-            'name': 'Product Name',
-            'brand_name': 'Brand',
-            'price': 'Price',
-            'discount': 'Discount',
-            'icon': 'Product Picture',
-            'discounted_price': 'Price After Discount',
-            'desc': 'About Product'
-            }
+        #columns = {
+            #'name': 'Product Name',
+            #'brand_name': 'Brand',
+            #'price': 'Price',
+            #'discount': 'Discount',
+            #'icon': 'Product Picture',
+            #'discounted_price': 'Price After Discount',
+            #'desc': 'About Product'
+            #}
 
         template_value = {
             'is_discounted': is_discounted,
@@ -39,8 +39,8 @@ class Items(pybase.PyBase):
             'selected_subcategory': selected_subcategory,
             'categories': categories,
             'subcategories': subcategories,
-            'properties' : properties,
-            'columns': columns
+            #'properties' : properties,
+            #'columns': columns
         }
         #template_value = {
                 #'categories': categories,

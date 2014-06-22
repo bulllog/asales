@@ -17,18 +17,22 @@ goog.require('goog.net.XhrIo');
  */
 asales.api.getItems = function(
     category, subcategory, isDiscounted, opt_successCallback) {
-  var url = '/getitems';
+  /** TODO(pankajkumar): Remove direct parmeters from url */
+  var url = '/getitems?';
   var xhrObj = new goog.net.XhrIo();
 
   var params = {}
   params['category'] = category;
+  url = url + 'category=' + category;
 
-  if (goog.isDef(subcategory)) {
+  if (subcategory != null) {
     params['subcategory'] = subcategory;
+    url = url + '&subcategory=' + subcategory;
   }
 
-  if (goog.isDef(isDiscounted)) {
+  if (isDiscounted) {
     params['is_discounted'] = isDiscounted;
+    url = url + '&is_discounted=' + isDiscounted;
   }
  
   if (opt_successCallback) {

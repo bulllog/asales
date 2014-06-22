@@ -1,4 +1,4 @@
-#Get data from the database.
+# Get data from the database.
 
 from google.appengine.ext import ndb
 from models import items
@@ -6,15 +6,17 @@ from models import category_model
 from models import subcategory_model
 from views import constant
 
+import logging
+
 class ItemsApi(ndb.Model):
   def getItems(self, category = None, subcategory = None, is_discounted = None):
     """ Queries the item data table on this basis of the given parameters."""
     Item = items.Item
     items_query = Item.query()
     print category
-    
+    #import pdb; pdb.set_trace()    
     if is_discounted:
-      print 'discounted'
+      logging.info('discounted')
       items_query = items_query.filter(Item.has_discount == True)
     
     if category:

@@ -29,45 +29,76 @@ asales.templates.discountedItem = function(opt_data, opt_ignored) {
 
 
 asales.templates.renderTableItems = function(opt_data, opt_ignored) {
-  var output = '<table class=\'data-table\'><thead class=\'data-table-head\'><tr class=\'data-table-header\'>';
-  var propertyList28 = opt_data.properties;
-  var propertyListLen28 = propertyList28.length;
-  for (var propertyIndex28 = 0; propertyIndex28 < propertyListLen28; propertyIndex28++) {
-    var propertyData28 = propertyList28[propertyIndex28];
-    output += '<th>' + soy.$$escapeHtml(opt_data.columns[propertyData28]) + '</th>';
-  }
-  output += '</tr></thead><tbody>';
-  var itemList34 = opt_data.items;
-  var itemListLen34 = itemList34.length;
-  for (var itemIndex34 = 0; itemIndex34 < itemListLen34; itemIndex34++) {
-    var itemData34 = itemList34[itemIndex34];
-    output += '<tr class=\'data-table-tr\'>';
-    var propertyList36 = opt_data.properties;
-    var propertyListLen36 = propertyList36.length;
-    for (var propertyIndex36 = 0; propertyIndex36 < propertyListLen36; propertyIndex36++) {
-      var propertyData36 = propertyList36[propertyIndex36];
-      output += '<td>' + ((propertyData36 == 'icon') ? '<img src=\'images/' + soy.$$escapeHtml(opt_data.category) + '/' + soy.$$escapeHtml(opt_data.subcategory) + '/' + soy.$$escapeHtml(itemData34.name) + '\' alt=' + soy.$$escapeHtml(itemData34.name) + '></img>' : soy.$$escapeHtml(itemData34[propertyData36])) + '</td>';
+  var output = '';
+  if (opt_data.items.length == 0) {
+    output += '<div class=\'no-result-found\'>No result found.<div>';
+  } else {
+    output += '<table class=\'data-table\'><thead class=\'data-table-head\'><tr class=\'data-table-header\'>';
+    var propertyList32 = opt_data.properties;
+    var propertyListLen32 = propertyList32.length;
+    for (var propertyIndex32 = 0; propertyIndex32 < propertyListLen32; propertyIndex32++) {
+      var propertyData32 = propertyList32[propertyIndex32];
+      output += '<th>' + soy.$$escapeHtml(opt_data.columns[propertyData32]) + '</th>';
     }
-    output += asales.templates.renderPopup({item: itemData34}) + '</tr>';
+    output += '</tr></thead><tbody>';
+    var itemList38 = opt_data.items;
+    var itemListLen38 = itemList38.length;
+    for (var itemIndex38 = 0; itemIndex38 < itemListLen38; itemIndex38++) {
+      var itemData38 = itemList38[itemIndex38];
+      output += '<tr class=\'data-table-tr\'>';
+      var propertyList40 = opt_data.properties;
+      var propertyListLen40 = propertyList40.length;
+      for (var propertyIndex40 = 0; propertyIndex40 < propertyListLen40; propertyIndex40++) {
+        var propertyData40 = propertyList40[propertyIndex40];
+        output += '<td>' + ((propertyData40 == 'icon') ? '<img src=\'images/' + soy.$$escapeHtml(itemData38.category) + '/' + soy.$$escapeHtml(itemData38.subcategory) + '/' + soy.$$escapeHtml(itemData38.name) + '.jpg\' alt=' + soy.$$escapeHtml(itemData38.name) + '></img>' : soy.$$escapeHtml(itemData38[propertyData40])) + '</td>';
+      }
+      output += asales.templates.renderPopup({item: itemData38}) + '</tr>';
+    }
+    output += '</tbody></table>';
   }
-  output += '</tbody></table>';
   return output;
 };
 
 
 asales.templates.renderPopup = function(opt_data, opt_ignored) {
-  return '<div class=\'asales-detail-popup\' id=\'pop-up-' + soy.$$escapeHtml(opt_data.item['name']) + '\'><div class=\'popup-tool-tip\'><div class=\'popup-info\'><div class=\'title product-info\'>' + soy.$$escapeHtml(opt_data.item['name']) + '</div><div class=\'brand-name product-info\'>Brand : ' + soy.$$escapeHtml(opt_data.item['brand_name']) + '</div><div class=\'product-info\'>Price : ' + soy.$$escapeHtml(opt_data.item['price']) + '</div></div><div class=\'item-icon\'><img src=\'/images/' + soy.$$escapeHtml(opt_data.item['icon']) + '.jpg\'></img></div></div></div>';
+  return '<div class=\'asales-detail-popup\' id=\'pop-up-' + soy.$$escapeHtml(opt_data.item['name']) + '\'><div class=\'popup-tool-tip\'><div class=\'popup-info\'><div class=\'title product-info\'>' + soy.$$escapeHtml(opt_data.item['name']) + '</div><div class=\'brand-name product-info\'>Brand : ' + soy.$$escapeHtml(opt_data.item['brand_name']) + '</div><div class=\'product-info\'' + ((opt_data.item.discount != 0) ? 'style="text-decoration: line-through;"' : '') + '>Price : Rs. ' + soy.$$escapeHtml(opt_data.item['price']) + '</div>' + ((opt_data.item.is_discounted) ? '<div class=\'product-info\'>Discount : ' + soy.$$escapeHtml(opt_data.item.discount) + '%</div><div class=\'product-info\'>Price After Discount : Rs. ' + soy.$$escapeHtml(opt_data.item.discounted_price) + '</div>' : '') + '</div><div class=\'item-icon\'><img src=\'/images/' + soy.$$escapeHtml(opt_data.item['category']) + '/' + soy.$$escapeHtml(opt_data.item['subcategory']) + '/' + soy.$$escapeHtml(opt_data.item['name']) + '.jpg\'></img></div></div></div>';
 };
 
 
 asales.templates.renderGridItems = function(opt_data, opt_ignored) {
-  var output = '<div>';
-  var itemList72 = opt_data.items;
-  var itemListLen72 = itemList72.length;
-  for (var itemIndex72 = 0; itemIndex72 < itemListLen72; itemIndex72++) {
-    var itemData72 = itemList72[itemIndex72];
-    output += '<div class=\'tile\'><div class=\'tile-header\'><div class=\'tile-title\'><span> Product Name : </span>' + soy.$$escapeHtml(itemData72['name']) + '</div><div class=\'tile-price\'><span>Price : </span>' + soy.$$escapeHtml(itemData72['price']) + '</div></div><div class=\'tile-icon\'><img src=\'/images/' + soy.$$escapeHtml(itemData72['icon']) + '.jpg\'></img></div><div class=\'tile-slider\'><div class=\'tile-slider-info\'></div></div></div>';
+  var output = '<div>' + ((opt_data.items.length == 0) ? '<div class=\'no-result-found\'>No result found.<div>' : '');
+  var itemList95 = opt_data.items;
+  var itemListLen95 = itemList95.length;
+  for (var itemIndex95 = 0; itemIndex95 < itemListLen95; itemIndex95++) {
+    var itemData95 = itemList95[itemIndex95];
+    output += '<div class=\'tile\'><div class=\'tile-icon\'><img src=\'/images/' + soy.$$escapeHtml(itemData95.category) + '/' + soy.$$escapeHtml(itemData95.subcategory) + '/' + soy.$$escapeHtml(itemData95.name) + '.jpg\'></img></div><div class=\'tile-header\'><div class=\'tile-title\'>' + soy.$$escapeHtml(itemData95['name']) + '</div><div class=\'price-container\'>' + ((itemData95.discount != 0) ? '<div class=\'tile-price\'> ' + soy.$$escapeHtml(itemData95.discount) + '%</div><div class=\'tile-price\'>Rs.' + soy.$$escapeHtml(itemData95.discounted_price) + '</div>' : '') + '<div class=\'tile-price\'' + ((itemData95.discount != 0) ? 'style="text-decoration: line-through;"' : '') + '><span>Rs. </span>' + soy.$$escapeHtml(itemData95['price']) + '</div></div></div></div>';
   }
   output += '</div>';
+  return output;
+};
+
+
+asales.templates.renderFilterOptions = function(opt_data, opt_ignored) {
+  var output = '<ul><li class=\'brand-filter filter\'><ul class=\'filter-options\'><li class=\'options-title\'>Choose Brand</li>';
+  var brandList123 = opt_data.uniqueBrands;
+  var brandListLen123 = brandList123.length;
+  for (var brandIndex123 = 0; brandIndex123 < brandListLen123; brandIndex123++) {
+    var brandData123 = brandList123[brandIndex123];
+    output += '<li class=\'option\'><input type=\'checkbox\' class=\'brand-option\'><span>' + soy.$$escapeHtml(brandData123) + '</span></li>';
+  }
+  output += '</ul></li><li class=\'discounted-filter filter\'><ul class=\'filter-options\'><li class=\'options-title\'>Discount</li><li class=\'option\'><input type=\'checkbox\' class=\'discount-option\'><span>Discounted</span></li><li class=\'option\'><input type=\'checkbox\' class=\'discount-option\'><span>Non Discounted</span></li></ul></li><li class=\'price-filter filter\'><ul class=\'filter-options\' ><li class=\'options-title\'>Price</li><li class=\'option\' id=\'price-filter-tool\'><div id="slider_base"></div><div class=\'price-controller\'><span id="slider_min" class=\'slider\'></span><span id=\'slider_max\' class=\'slider\'></span></div></li><li class=\'filter-price\'><input type=\'textBox\' readonly value = ' + soy.$$escapeHtml(opt_data.minPrice) + ' class=\'min_value\' id=\'slider_min_value\'><input type=\'textBox\' readonly value = ' + soy.$$escapeHtml(opt_data.maxPrice) + ' class=\'max_value\' id=\'slider_max_value\'></li></li></ul>';
+  return output;
+};
+
+
+asales.templates.renderCarousel = function(opt_data, opt_ignored) {
+  var output = '<div class=\'container\'><ul class=\'carousel-main\'>';
+  var itemList135 = opt_data.items;
+  var itemListLen135 = itemList135.length;
+  for (var itemIndex135 = 0; itemIndex135 < itemListLen135; itemIndex135++) {
+    var itemData135 = itemList135[itemIndex135];
+    output += '<li carousel-tile><img src=\'/images/' + soy.$$escapeHtml(itemData135.category) + '/' + soy.$$escapeHtml(itemData135.subcategory) + '/' + soy.$$escapeHtml(itemData135.name) + '.jpg\'></img><div id=\'footer\' class=\'item-info\'><div> ' + soy.$$escapeHtml(itemData135.name) + ' </div><div class=price-info><div class=\'old-price\'> Rs. ' + soy.$$escapeHtml(itemData135.price) + ' </div><div>' + soy.$$escapeHtml(itemData135.discount) + ' </div><div>' + soy.$$escapeHtml(itemData135.discounted_price) + '</div></div></div></li>';
+  }
+  output += '</ul>';
   return output;
 };

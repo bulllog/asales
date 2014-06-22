@@ -10,7 +10,7 @@
   -moz-transition: font-size .218s,height .218s,line-height .218s,margin .218s,padding .218s,width .218s;
   -o-transition: font-size .218s,height .218s,line-height .218s,margin .218s,padding .218s,width .218s;
   transition: font-size .218s,height .218s,line-height .218s,margin .218s,padding .218s,width .218s;
-  height: 24px;
+  height: 45px;
 }
 
 .data-table-header {
@@ -25,7 +25,7 @@
   font-size: 13px;
   font-weight: normal;
   overflow: hidden;
-  padding: 5px 5px 5px 6px;
+  padding: 5px 5px 5px 10px;
   text-align: left;
   text-transform: uppercase;
   white-space: nowrap;
@@ -38,7 +38,8 @@
 }
 
 .data-table tr {
-  height: 30px;
+  height: 50px;
+  background: white;
 }
 
 .data-table-tr {
@@ -53,7 +54,7 @@
   empty-cells: show;
   font-family: arial,sans-serif;
   font-size: 14px;
-  padding-left: 5px;
+  padding-left: 10px;
 }
 
 .data-table .data-table-tr td img {
@@ -61,5 +62,5 @@
   height: 40px;
 }
 .data-table .data-table-tr:hover {
-  background: rgba(250, 235, 215, 0.5);
+  background: rgba(228, 154, 55, 0.5);;
 }

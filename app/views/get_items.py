@@ -5,10 +5,14 @@ from api import items_api
 import json
 import pybase
 
+import logging
 
 class GetItems(pybase.PyBase):
-  """Hnadler to fetch the items on the given request."""
-  item_labels_ = ['name', 'brand_name', 'price', 'is_discounted','discount', 'discounted_price', 'description']
+  """Handler to fetch the items on the given request."""
+  item_labels_ = [
+      'name', 'brand_name', 'price', 'is_discounted', 'discount',
+      'discounted_price', 'description', 'category', 'subcategory'
+  ]
 
   def get(self):
     """Overrided function of base class to handle get request."""
@@ -16,7 +20,7 @@ class GetItems(pybase.PyBase):
     is_discounted = self.request.get('is_discounted')
     category = self.request.get('category')
     subcategory = self.request.get('subcategory')
-    print is_discounted
+    logging.info(category+' '+subcategory)
     items_obj = items_api.ItemsApi()
     items = items_obj.getItems(category, subcategory, is_discounted)
     for item in items:
@@ -38,4 +42,6 @@ class GetItems(pybase.PyBase):
     item[self.item_labels_[4]] = item_obj.discount
     item[self.item_labels_[5]] = item_obj.discounted_price
     item[self.item_labels_[6]] = item_obj.description
+    item[self.item_labels_[7]] = item_obj.category.name.lower()
+    item[self.item_labels_[8]] = item_obj.subcategory.name.lower()
     return item

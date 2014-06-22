@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block body %}
+  <div id="asales-item-image-and-details-container">
+    <img src="/images/{{ icon }}.jpg" alt="Item" class="asales-left-aligned">
+    <div class="asales-right-aligned">
+      <div class="asales-item-details">Product Name: {{ name }}</div>
+      <div class="asales-item-details">Brand Name: {{ brand_name }}</div>
+      {% if discount %}
+        <div class="asales-item-details">Original Price: {{ price }}</div>
+        <div class="asales-item-details">Discount: {{ discount }}</div>
+        <div class="asales-item-details">Final Price: {{ discounted_price }}</div>
+      {% else %}
+        <div class="asales-item-details">Price: {{ price }}</div>
+      {% endif %}
+      <input type="button" class="asales-add-to-cart-btn button button-blue" value="Add To Cart">
+    </div>
+  </div>
+  <hr>
+  <div id="asales-item-description">
+    Product Description:
+    <p>{{ description }}</p>
+  <div>
+{% endblock %}
+

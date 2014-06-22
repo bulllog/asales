@@ -1,7 +1,7 @@
 /*stylesheets for slider with two mobs.*/
 
-
 .slider {
+  display: block;
   position: relative;
   width: 15px;
   height: 30px;
@@ -11,28 +11,28 @@
   text-align: end;
   border: 1px solid #999;
   cursor: default;
-
 }
 
 #slider_base {
   border-radius: 20px;
   position: relative;
   height: 5px;
-  width: 95.3%;
+  width: 96%;
   font-size: 1px;
   background-color: #999;
   margin-top: 20px;
 }
   
 .price-controller {
+  display: flex; 
   position: relative;
-  top: -11px;
+  top: -17px;
 }
 
 #slider_max {
   border-top-right-radius: 12px;
   border-bottom-right-radius: 12px;
-  left: 79%;
+  left: 81%;
 }
 
 #slider_min {

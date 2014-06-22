@@ -58,39 +58,41 @@
  * @param properties Column ids.
  * @param columns  Column names.
  * @param items Items.
- * @param category Category.
- * @param subcategory SubCategory.
  */
 {template .renderTableItems}
-  <table class='data-table'>
-    <thead class='data-table-head'>
-      <tr class='data-table-header'>
-	{foreach $property in $properties}
-	  <th>
-	    {$columns[$property]}
-	  </th>
-	{/foreach}
-      </tr>
-    </thead>
-    <tbody>
-      {foreach $item in $items}
-	<tr class='data-table-tr'>
+  {if $items.length == 0}
+    <div class='no-result-found'>No result found.<div>
+  {else}
+    <table class='data-table'>
+      <thead class='data-table-head'>
+	<tr class='data-table-header'>
 	  {foreach $property in $properties}
-	    <td>
-	      {if $property == 'icon'}
-		<img src='images/{$category}/{$subcategory}/{$item.name}' alt={$item.name}></img>
-	      {else}
-		{$item[$property]}
-	      {/if}
-	    </td>
+	    <th>
+	      {$columns[$property]}
+	    </th>
 	  {/foreach}
-	  {call .renderPopup}
-	    {param item: $item/}
-	  {/call}
 	</tr>
-      {/foreach}
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+	{foreach $item in $items}
+	  <tr class='data-table-tr'>
+	    {foreach $property in $properties}
+	      <td>
+		{if $property == 'icon'}
+		  <img src='images/{$item.category}/{$item.subcategory}/{$item.name}.jpg' alt={$item.name}></img>
+		{else}
+		  {$item[$property]}
+		{/if}
+	      </td>
+	    {/foreach}
+	    {call .renderPopup}
+	      {param item: $item/}
+	    {/call}
+	  </tr>
+	{/foreach}
+      </tbody>
+    </table>
+  {/if}
 {/template}
 
 
@@ -104,38 +106,131 @@
       <div class='popup-info'>
 	  <div class='title product-info'>{$item['name']}</div>
 	  <div class='brand-name product-info'>Brand : {$item['brand_name']}</div>
-	  <div class='product-info'>Price : {$item['price']}</div>
+	  <div class='product-info'
+	    {if $item.discount != 0}
+	      style="text-decoration: line-through;"
+	    {/if}
+	  >Price : Rs. {$item['price']}</div>
+	  {if $item.is_discounted}
+	    <div class='product-info'>Discount : {$item.discount}%</div>
+	    <div class='product-info'>Price After Discount : Rs. {$item.discounted_price}</div>
+	  {/if}
       </div>
-      <div class='item-icon'><img src='/images/{$item['icon']}.jpg'></img></div>
+      <div class='item-icon'><img src='/images/{$item['category']}/{$item['subcategory']}/{$item['name']}.jpg'></img></div>
     </div>
   </div>
 {/template}
 
 
 /**
- * Render table with items.
+ * Render Grid with items.
  * @param items Items.
  */
 {template .renderGridItems}
   <div>
+    {if $items.length == 0}
+      <div class='no-result-found'>No result found.<div>
+    {/if}
     {foreach $item in $items}
       <div class='tile'>
+	<div class='tile-icon'>
+	  <img src='/images/{$item.category}/{$item.subcategory}/{$item.name}.jpg'></img>
+	</div>
 	<div class='tile-header'>
 	  <div class='tile-title'>
-	    <span> Product Name : </span>{$item['name']}
+	    {$item['name']}
 	  </div>
-	  <div class='tile-price'>
-	    <span>Price : </span>{$item['price']}
-	  </div>
-	</div>
-	<div class='tile-icon'>
-	  <img src='/images/{$item['icon']}.jpg'></img>
-	</div>
-	<div class='tile-slider'>
-	  <div class='tile-slider-info'>
+	  <div class='price-container'>
+	    {if $item.discount != 0}
+	      <div class='tile-price'> {$item.discount}%</div>
+	      <div class='tile-price'>Rs.{$item.discounted_price}</div>
+	    {/if}
+	    <div class='tile-price'
+	    {if $item.discount != 0}
+	      style="text-decoration: line-through;"
+	    {/if}
+	    >
+	      <span>Rs. </span>{$item['price']}
+	    </div>
 	  </div>
 	</div>
       </div>
     {/foreach}
   </div>
+{/template}
+
+
+
+/**
+ * Renders filter options.
+ * @param uniqueBrands Unique brand values.
+ * @param minPrice Minimum price.
+ * @param maxPrice Maximum price.
+ */
+{template .renderFilterOptions}
+  <ul>
+    <li class='brand-filter filter'>
+      <ul class='filter-options'>
+	<li class='options-title'>
+	  Choose Brand
+	</li>
+	{foreach $brand in $uniqueBrands}
+	  <li class='option'>
+	    <input type='checkbox' class='brand-option'><span>{$brand}</span>
+	  </li>
+	{/foreach}
+      </ul>
+    </li>
+    <li class='discounted-filter filter'>
+      <ul class='filter-options'>
+	<li class='options-title'>Discount</li>
+	<li class='option'>
+	  <input type='checkbox' class='discount-option'><span>Discounted</span>
+	</li>
+	<li class='option'>
+	  <input type='checkbox' class='discount-option'><span>Non Discounted</span>
+	</li>
+      </ul>
+    </li>
+    <li class='price-filter filter'>
+      <ul class='filter-options' >
+	<li class='options-title'>Price</li>
+	<li class='option' id='price-filter-tool'>
+	  <div id="slider_base"></div>
+	  <div class='price-controller'>
+	    <span id="slider_min" class='slider'></span>
+	    <span id='slider_max' class='slider'></span>
+	  </div>
+	</li>
+	<li class='filter-price'>
+	  <input type='textBox' readonly value = {$minPrice} class='min_value' id='slider_min_value'>
+	  <input type='textBox' readonly value = {$maxPrice} class='max_value' id='slider_max_value'>
+	</li>
+    </li>
+  </ul>
+{/template}
+
+
+/**
+ * Renders slider.
+ * @param items List of items.
+ */
+{template .renderCarousel}
+  <div class='container'>
+  <ul class='carousel-main'>
+    {foreach $item in $items}
+      <li carousel-tile>
+	<img src='/images/{$item.category}/{$item.subcategory}/{$item.name}.jpg'>
+	</img>
+	<div id='footer' class='item-info'>
+	    <div> {$item.name} </div>
+	    <div class=price-info>
+	      <div class='old-price'> Rs. {$item.price} </div>
+	      <div>{$item.discount} </div>
+	      <div>{$item.discounted_price}</div>
+	    </div>
+	  </div>
+      </li>
+    {/foreach}
+  </ul>
 {/template}

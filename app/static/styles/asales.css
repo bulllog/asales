@@ -304,6 +304,16 @@ ul {
   min-width: 25px;
 }
 
+.tile-container .no-result-found {
+  margin: 12px;
+}
+
+.no-result-found {
+  font-family: sans-serif;
+  color: red;
+  font-size: larger;
+}
+
 .asales-table {
   padding: 12px;
 }
@@ -329,6 +339,14 @@ ul {
   height: 21px;
 }
 
+.price-container {
+  display: flex;
+}
+
+.tile:hover {
+-webkit-transform: scale(1.2,1.2);
+}
+
 .button-active,
 .button-active {
   -webkit-box-shadow: 0px 1px 5px 1px #888888;
@@ -347,7 +365,7 @@ ul {
 
 .tile {
   display:inline-block;
-  width: 29%;
+  width: 30%;
   background: white;
   height: 20em;
   margin: 1.6%;
@@ -356,28 +374,42 @@ ul {
 }
 
 .tile-header {
-  display: flex;
-  margin: 12px;
+  margin: 5px;
 }
 
 .tile-price {
   display: flex;
-  margin-left: 14%;
+  margin-left: 5%;
 }
 
 .tile-icon img {
-  width: 90%;
+  width: 92%;
   -webkit-box-shadow: 0px 0px 7px 0px blue;
-  margin-left:5%;
-  height: 220px;
+  margin-left:4%;
+  height: 260px;
 }
 
 .tile-container {
   display: inline-block;
+  width: 100%;
+}
+
+.tile-icon {
+  margin-top: 10px;
+}
+
+.tile-header {
+  text-align: center;
+  margin-bottom: 3px;
+}
+
+.tile-title {
+  max-height: 16px;
+  overflow: auto;
 }
 
 .tile-title, .tile-price {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: normal;
   font-family: arial,sans-serif;
 }
@@ -438,7 +470,7 @@ ul {
   -moz-transition: font-size .218s,height .218s,line-height .218s,margin .218s,padding .218s,width .218s;
   -o-transition: font-size .218s,height .218s,line-height .218s,margin .218s,padding .218s,width .218s;
   transition: font-size .218s,height .218s,line-height .218s,margin .218s,padding .218s,width .218s;
-  height: 24px;
+  height: 45px;
 }
 
 .data-table-header {
@@ -453,7 +485,7 @@ ul {
   font-size: 13px;
   font-weight: normal;
   overflow: hidden;
-  padding: 5px 5px 5px 6px;
+  padding: 5px 5px 5px 10px;
   text-align: left;
   text-transform: uppercase;
   white-space: nowrap;
@@ -466,7 +498,8 @@ ul {
 }
 
 .data-table tr {
-  height: 30px;
+  height: 50px;
+  background: white;
 }
 
 .data-table-tr {
@@ -481,7 +514,7 @@ ul {
   empty-cells: show;
   font-family: arial,sans-serif;
   font-size: 14px;
-  padding-left: 5px;
+  padding-left: 10px;
 }
 
 .data-table .data-table-tr td img {
@@ -489,7 +522,7 @@ ul {
   height: 40px;
 }
 .data-table .data-table-tr:hover {
-  background: rgba(250, 235, 215, 0.5);
+  background: rgba(228, 154, 55, 0.5);;
 }
 .asales-detail-popup {
   display: none;
@@ -498,9 +531,9 @@ ul {
 .popup-tool-tip {
   -webkit-box-shadow: 0px 0px 15px 5px #888888;
   background: white;
-  border-radius: 8px;
-  display:flex;
-  height: 13em;
+ border-radius: 8px;
+  display: flex;
+  height: inherite;
   margin-left: 35%;
   opacity: 1;
   position: absolute;
@@ -515,17 +548,20 @@ ul {
 }
 
 .popup-info div {
-  padding: 10px;
+  padding: 9px;
 }
 
 .item-icon {
-  width: 90%;
+  min-width: 167px;
+  width: 41%;
 }
 
 .item-icon img {
-  width: 85%;
+  width: 100%;
+  height: 100%;
+  max-height: 195px;
   margin-top: 4%;
-  margin-left: 3%;
+  margin-left: -4%;
   -webkit-box-shadow: 0px 0px 13px 0px rgb(43, 43, 201);
 }
 
@@ -539,8 +575,8 @@ ul {
 }
 /*stylesheets for slider with two mobs.*/
 
-
 .slider {
+  display: block;
   position: relative;
   width: 15px;
   height: 30px;
@@ -550,28 +586,28 @@ ul {
   text-align: end;
   border: 1px solid #999;
   cursor: default;
-
 }
 
 #slider_base {
   border-radius: 20px;
   position: relative;
   height: 5px;
-  width: 95.3%;
+  width: 96%;
   font-size: 1px;
   background-color: #999;
   margin-top: 20px;
 }
   
 .price-controller {
+  display: flex; 
   position: relative;
-  top: -11px;
+  top: -17px;
 }
 
 #slider_max {
   border-top-right-radius: 12px;
   border-bottom-right-radius: 12px;
-  left: 79%;
+  left: 81%;
 }
 
 #slider_min {
@@ -587,9 +623,14 @@ ul {
 }
 /*File for style on filter options.*/
 
+.options-title {
+  margin-left: 6% !important;
+  margin-bottom: 2%;
+}
+
 .filter-panel {
   background: rgba(0,0,0,.2);
-  height: 26em;
+  height: 100%;
   margin-right: 5px;
   padding-right: 0px;
 }
@@ -604,18 +645,22 @@ ul {
   font-size: 16px;
 }
 
+#price-filter-tool {
+ margin-left: 0%;  
+}
+
 .filter-options {
   padding-left: 0px;
 }
 
 .filter {
-  margin-right: 71px;
+  margin-left: -9%;
   margin-bottom: 15px;
   min-width: 55%;
   background: white;
   -webkit-box-shadow: 0px 0px 15px -2px blue;
   border-radius: 5px;
-  width: 80%;
+  width: 100%;
 }
 
 .option, .options-title {
@@ -623,6 +668,8 @@ ul {
   font-family: arial, sens-sarif;
   font-size: 15px;
   width: 100%;
+  margin-left: 14%;
+  margin-bottom: 2%;
 }
 
 .option input[type="checkbox"] {
@@ -641,11 +688,13 @@ ul {
 .filter input[type='textBox'] {
   margin: 20px;
   margin-bottom: 10px;
-
+  font-size: 15px;
 }
 
+.filter-price {
+  display: flex;
+}
 /*This file contain styles for carousel.*/
-
 
 .carousel-main {
   display: flex;
@@ -655,21 +704,82 @@ ul {
   width: 100%;
 }
 
+/*.carousel-tile {*/
+  /*border: 1px solid rgb(0, 214, 255);*/
+  /*height: inherit;*/
+  /*width: 30%;*/
+  /*transition-property: width;*/
+  /*transition-duration: 2s;*/
+  /*-webkit-transition-property: width;*/
+  /*-webkit-transition-duration: 2s;*/
+/*}*/
+
+/*.carousel-tile img {*/
+  /*height: 100%;*/
+  /*width: 100%;*/
+/*}*/
+
+.heading {
+  margin: 3em 0 0 3em;
+  font-family: sans-serif;
+  color: blue;
+  font-size: xx-large;
+}
+
+.container {
+  margin: 0px 25px 0px 25px;
+}
+
+.carousel-main {
+  border: 1px solid blue;
+  display: flex;
+  list-style: none;
+  max-width:100%;
+  margin-left: 15px;
+  height: 22em;
+  padding: 0px;
+  width: 97.5%;
+}
+
 .carousel-tile {
-  border: 1px solid rgb(0, 214, 255);
+  border: 1px solid red;
   height: inherit;
   width: 30%;
   transition-property: width;
-  transition-duration: 2s;
+  transition-duration: 3s;
   -webkit-transition-property: width;
-  -webkit-transition-duration: 2s;
+  -webkit-transition-duration: 3s;
 }
 
 .carousel-tile img {
-  height: 100%;
+  height: inherit;
   width: 100%;
+  -webkit-transform: rotate3d(-1,-1,0,0deg);
 }
 
+.detail-container {
+  height : 0px;
+  
+}
+  
+#footer {
+  position: absolute;
+  bottom: 570px;
+  height: 5%;
+  /* border-width: 1px; */
+  /* border-color: #f00; */
+  /* border-style: groove; */
+  background-color: #3109F3;
+  transition-property: top, height;
+  transition-duration: 0.4s, 2s;
+  transition-delay: 0, 0;
+  opacity: 0.5;
+  display: none;
+}
+
+#footer:hover  {
+    height: 7%;
+}
 /*Styles for discounted items on home.*/
 
 .discounted-item-info {

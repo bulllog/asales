@@ -1,8 +1,13 @@
 /*File for style on filter options.*/
 
+.options-title {
+  margin-left: 6% !important;
+  margin-bottom: 2%;
+}
+
 .filter-panel {
   background: rgba(0,0,0,.2);
-  height: 26em;
+  height: 100%;
   margin-right: 5px;
   padding-right: 0px;
 }
@@ -17,18 +22,22 @@
   font-size: 16px;
 }
 
+#price-filter-tool {
+ margin-left: 0%;  
+}
+
 .filter-options {
   padding-left: 0px;
 }
 
 .filter {
-  margin-right: 71px;
+  margin-left: -9%;
   margin-bottom: 15px;
   min-width: 55%;
   background: white;
   -webkit-box-shadow: 0px 0px 15px -2px blue;
   border-radius: 5px;
-  width: 80%;
+  width: 100%;
 }
 
 .option, .options-title {
@@ -36,6 +45,8 @@
   font-family: arial, sens-sarif;
   font-size: 15px;
   width: 100%;
+  margin-left: 14%;
+  margin-bottom: 2%;
 }
 
 .option input[type="checkbox"] {
@@ -54,6 +65,9 @@
 .filter input[type='textBox'] {
   margin: 20px;
   margin-bottom: 10px;
-
+  font-size: 15px;
 }
 
+.filter-price {
+  display: flex;
+}

@@ -4,7 +4,6 @@
     <script type='text/javascript' src='/closure/goog/base.js'></script>
     <script type='text/javascript' src='/js/deps.js'></script>
     <script type='text/javascript' src='/js/asales-templates.js'></script>
-    <!--<script type='text/javascript' src='/js/asales-debug.js'></script>-->
     <script type='text/javascript' src='/js/base.js'></script>
     <link rel='stylesheet' type='text/css' href='/styles/asales.css' />
   </head>
@@ -12,7 +11,7 @@
     {% block header %}
       {% block headerbar %}
 	<div id='asales-header-bar'>
-	  <a id='asales-logo' href='/'><img src='/images/asales_logo.jpg' alt='Google'/></a>
+	  <a id='asales-logo' href='/'><img src='/images/asales_logo.jpg' alt='Asales'/></a>
 	    <form id='asales-search' action='/search' method='get'>
 	      <input type='text' name='asales-search-box' id='asales-search-box' value='' placeholder='Search'/>
 	      <button id='asales-search-button' class='button button-blue'>
@@ -20,8 +19,8 @@
 	      </button>
 	    </form>
 	  </div>
-	  {% endblock %}
-	  {% block menutabs%}
+      {% endblock %}
+	{% block menutabs%}
 	  <div id='asales-categories-tabs'>
 	  <ul id='asales-menu-tabs'>
 	    {% for category in categories%}
@@ -44,13 +43,13 @@
 	  </ul>
 	</div>
 	{% endblock %}
-      {% endblock %}
+    {% endblock %}
     {% block body %}
     {% endblock %}
     <script type="text/javascript" src="/closure-templates/soyutils_usegoog.js"></script>
     <script>
       {% block basejsblock %}
-	var baseFunc = new asales.base(['men']);
+	var baseFunc = new asales.base(['Men']);
       {% endblock %}
       
       {% block jsblock%}

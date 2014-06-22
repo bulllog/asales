@@ -1,14 +1,27 @@
+/**
+ * @fileoverview This file is the entry point of the application.
+ */
+
+
 goog.provide('asales.base');
 
 goog.require('goog.dom');
 goog.require('asales.DiscountedItems');
 goog.require('asales.Items');
+goog.require('goog.array');
 goog.require('goog.object');
 
+
+/**
+ * An array of categories.
+ * @type {Array.<string>}
+ */
+asales.base.categories = null;
 
 
 /**
  * Initializes all the objects.
+ * @param {Array.<string>} categories An array of categories.
  * @constructor
  * @export
  */
