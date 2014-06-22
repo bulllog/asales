@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 	{% block body %}
 	<div id='asales-discounted-items'>
-	{% for category, discounted_items in category_discounted_items.iteritems() %}
+	{% for category in categories%}
 	<a class='asales-home-categories' href='/items?category={{ category }}&discounted=true'>{{ category }}</a>
 	<ul id='asales-{{ category|lower }}-discounted-items'>
 	</ul>

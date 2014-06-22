@@ -25,16 +25,17 @@ asales.Carousel = function(discountedItems, domContainerId) {
   this.renderCarousel(domContainerId);
   this.itemEls = goog.dom.getElementsByClass('carousel-tile');
 
-  goog.events.listen(window, goog.events.EventType.MOUSEMOVE, function(e) {
+  goog.events.listen(window, goog.events.EventType.MOUSEMOVE, goog.bind(function(e) {
     this.currentElMouseOver = e.target;
-  });
+  }, this));
 
-  window.setInterval(syncFocus, 6000);
+  window.setInterval(goog.bind(this.syncFocus, this), 6000);
   
-  goog.array.forEach(this.itemEls, function(item){
-    goog.events.listen(item, goog.events.EventType.MOUSEOVER, handleHoverOnTile);
-  });
-}
+  goog.array.forEach(this.itemEls, goog.bind(function(item){
+    goog.events.listen(item, goog.events.EventType.MOUSEOVER, goog.bind(this.handleHoverOnTile, this));
+  }, this));
+  this.syncFocus();
+};
 
 
 /**
@@ -54,6 +55,10 @@ asales.Carousel.prototype.renderCarousel = function(domId) {
  */
 asales.Carousel.prototype.onFocus = function(targetTile) {
     var changedWidth = 100;
+
+    if (this.previousTile == targetTile) {
+      return;
+    }
     if (this.previousTile == null) {
       this.previousTile = targetTile;
     }
@@ -62,22 +67,22 @@ asales.Carousel.prototype.onFocus = function(targetTile) {
         item.style.display = 'none';
       })
     }
-    selectedIndex = goog.array.indexOf(this.itemEls, targetTile);
-    goog.array.forEach(this.itemEls, function(item) {
+    this.selectedIndex = goog.array.indexOf(this.itemEls, targetTile);
+    goog.array.forEach(this.itemEls, goog.bind(function(item) {
       var currentIndex = goog.array.indexOf(this.itemEls, item);
-      var diff = Math.abs(selectedIndex - currentIndex);
+      var diff = Math.abs(this.selectedIndex - currentIndex);
       var computedWidth = changedWidth - (changedWidth * diff * 10)/100;
       item.style.width = computedWidth > 0 ? computedWidth.toString() + '%' : '10%';
-    });
+    }, this));
 
     targetTile.style.width = '500%';
     if (this.timeout) {
       clearTimeout(this.timeout);
+      clearTimeout(this.timeoutTileHover);
     }
-    //console.log(targetTile.children[1]);
-    this.timeout = setTimeout( function() 
-      {
+    this.timeout = setTimeout( function() {
         targetTile.children[1].style.width = goog.style.getSize(targetTile)['width'].toString() + 'px';
+        targetTile.children[1].style.height = '13%';
         targetTile.children[1].style.display = 'block';
       }, 3500);
       this.previousTile = targetTile;
@@ -93,11 +98,34 @@ asales.Carousel.prototype.syncFocus = function() {
   if(this.selectedIndex >= this.itemEls.length || this.selectedIndex == -1) {
     this.selectedIndex = 0;
   }
-  if(goog.dom.contains(this.itemEls[this.selectedIndex], currentElMouseOver)) {
+  if(goog.dom.contains(this.itemEls[this.selectedIndex], this.currentElMouseOver)) {
     return;
   }
 
-  onFocus(this.itemEls[this.selectedIndex]);
+  this.onFocus(this.itemEls[this.selectedIndex]);
   this.selectedIndex = this.selectedIndex + 1;
+};
+
+
+/**
+ * Handles hover action on tile.
+ * @param {goog.events} event Event object.
+ *
+ */
+asales.Carousel.prototype.handleHoverOnTile = function(e) {	
+    //var targetTile = (e.target.tagName == 'IMG' || e.target.className == 'item-info') ? e.target.parentElement : e.target;
+  var selectedTile = null;
+  var tilesDom = goog.dom.getElementsByClass('carousel-tile');
+  goog.array.some(tilesDom, function(tile, i) {
+    if( goog.dom.contains(tile, e.target) ) {
+      selectedTile = i;
+      return;
+    }
+  });
+  this.onFocus(tilesDom[selectedTile]);
+  
+  this.timeoutTileHover = setTimeout( function() {
+      tilesDom[selectedTile].children[1].style.height = '30%';
+  }, 3510);
 };
 

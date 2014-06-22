@@ -80,3 +80,12 @@ java\cf3  \cf4 -jar\cf3  \cf4 closure-templates/SoyToJsSrcCompiler.jar\cf3  \cf4
 			  {% endfor %}
 			</tbody>
 		  </table>
+closure-library/closure/bin/build/closurebuilder.py \
+        --root=closure-library/ \
+        --root=myproject/ \
+        --namespace="myproject.start" \
+      --output_mode=compiled \
+      --compiler_flags="--compilation_level=WHITESPACE_ONLY" \
+      --compiler_flags="--debug=true" \
+        --compiler_jar=compiler.jar \
+        > myproject/start-debug.js

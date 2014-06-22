@@ -1,37 +1,14 @@
 /*This file contain styles for carousel.*/
 
-.carousel-main {
-  display: flex;
-  height: 100%;
-  max-width: 100%;
-  padding: 0px;
-  width: 100%;
-}
-
-/*.carousel-tile {*/
-  /*border: 1px solid rgb(0, 214, 255);*/
-  /*height: inherit;*/
-  /*width: 30%;*/
-  /*transition-property: width;*/
-  /*transition-duration: 2s;*/
-  /*-webkit-transition-property: width;*/
-  /*-webkit-transition-duration: 2s;*/
-/*}*/
-
-/*.carousel-tile img {*/
-  /*height: 100%;*/
-  /*width: 100%;*/
-/*}*/
-
 .heading {
-  margin: 3em 0 0 3em;
-  font-family: sans-serif;
-  color: blue;
-  font-size: xx-large;
-}
+      margin: 3em 0 0 3em;
+      font-family: sans-serif;
+      color: blue;
+      font-size: xx-large;
+    }
 
 .container {
-  margin: 0px 25px 0px 25px;
+  /*margin: 0px 25px 0px 25px;*/
 }
 
 .carousel-main {
@@ -39,14 +16,14 @@
   display: flex;
   list-style: none;
   max-width:100%;
-  margin-left: 15px;
-  height: 22em;
+  margin-left: 0px;
+  height: 98%;
   padding: 0px;
-  width: 97.5%;
+  width: 100%%;
 }
 
 .carousel-tile {
-  border: 1px solid red;
+  border: 1px solid rgb(25, 59, 235);
   height: inherit;
   width: 30%;
   transition-property: width;
@@ -55,21 +32,35 @@
   -webkit-transition-duration: 3s;
 }
 
+.carousel-item-info {
+  margin-left: 24%;  
+}
+
 .carousel-tile img {
   height: inherit;
   width: 100%;
   -webkit-transform: rotate3d(-1,-1,0,0deg);
 }
 
+.carousel-item-name {
+  margin-left: 35%;
+  margin-top: 10px;
+}
+
+.carousel-item-info-container {
+  display: flex;
+  margin: 2%;
+}
 .detail-container {
   height : 0px;
   
 }
-  
+
 #footer {
+  color: whitesmoke;
   position: absolute;
-  bottom: 570px;
-  height: 5%;
+  bottom: 0em;
+  height: 13%;
   /* border-width: 1px; */
   /* border-color: #f00; */
   /* border-style: groove; */
@@ -84,3 +75,87 @@
 #footer:hover  {
     height: 7%;
 }
+/*.carousel-main {*/
+  /*display: flex;*/
+  /*height: 100%;*/
+  /*max-width: 100%;*/
+  /*padding: 0px;*/
+  /*width: 100%;*/
+/*}*/
+
+/*[>.carousel-tile {<]*/
+  /*[>border: 1px solid rgb(0, 214, 255);<]*/
+  /*[>height: inherit;<]*/
+  /*[>width: 30%;<]*/
+  /*[>transition-property: width;<]*/
+  /*[>transition-duration: 2s;<]*/
+  /*[>-webkit-transition-property: width;<]*/
+  /*[>-webkit-transition-duration: 2s;<]*/
+/*[>}<]*/
+
+/*[>.carousel-tile img {<]*/
+  /*[>height: 100%;<]*/
+  /*[>width: 100%;<]*/
+/*[>}<]*/
+
+/*.heading {*/
+  /*margin: 3em 0 0 3em;*/
+  /*font-family: sans-serif;*/
+  /*color: blue;*/
+  /*font-size: xx-large;*/
+/*}*/
+
+/*.container {*/
+  /*margin: 0px 25px 0px 25px;*/
+/*}*/
+
+/*.carousel-main {*/
+  /*border: 1px solid blue;*/
+  /*display: flex;*/
+  /*list-style: none;*/
+  /*max-width:100%;*/
+  /*margin-left: 15px;*/
+  /*height: 22em;*/
+  /*padding: 0px;*/
+  /*width: 97.5%;*/
+/*}*/
+
+/*.carousel-tile {*/
+  /*border: 1px solid red;*/
+  /*height: inherit;*/
+  /*width: 30%;*/
+  /*transition-property: width;*/
+  /*transition-duration: 3s;*/
+  /*-webkit-transition-property: width;*/
+  /*-webkit-transition-duration: 3s;*/
+/*}*/
+
+/*.carousel-tile img {*/
+  /*height: inherit;*/
+  /*width: 100%;*/
+  /*-webkit-transform: rotate3d(-1,-1,0,0deg);*/
+/*}*/
+
+/*.detail-container {*/
+  /*height : 0px;*/
+  
+/*}*/
+  
+/*#footer {*/
+  /*position: absolute;*/
+  /*bottom: 570px;*/
+  /*height: 5%;*/
+  /*[> border-width: 1px; <]*/
+  /*[> border-color: #f00; <]*/
+  /*[> border-style: groove; <]*/
+  /*background-color: #3109F3;*/
+  /*transition-property: top, height;*/
+  /*transition-duration: 0.4s, 2s;*/
+  /*transition-delay: 0, 0;*/
+  /*opacity: 0.5;*/
+  /*display: none;*/
+/*}*/
+
+/*#footer:hover  {*/
+    /*height: 7%;*/
+/*}*/

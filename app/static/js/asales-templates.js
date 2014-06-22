@@ -97,7 +97,7 @@ asales.templates.renderCarousel = function(opt_data, opt_ignored) {
   var itemListLen135 = itemList135.length;
   for (var itemIndex135 = 0; itemIndex135 < itemListLen135; itemIndex135++) {
     var itemData135 = itemList135[itemIndex135];
-    output += '<li carousel-tile><img src=\'/images/' + soy.$$escapeHtml(itemData135.category) + '/' + soy.$$escapeHtml(itemData135.subcategory) + '/' + soy.$$escapeHtml(itemData135.name) + '.jpg\'></img><div id=\'footer\' class=\'item-info\'><div> ' + soy.$$escapeHtml(itemData135.name) + ' </div><div class=price-info><div class=\'old-price\'> Rs. ' + soy.$$escapeHtml(itemData135.price) + ' </div><div>' + soy.$$escapeHtml(itemData135.discount) + ' </div><div>' + soy.$$escapeHtml(itemData135.discounted_price) + '</div></div></div></li>';
+    output += '<li class=\'carousel-tile\'><img src=\'/images/' + soy.$$escapeHtml(itemData135.category) + '/' + soy.$$escapeHtml(itemData135.subcategory) + '/' + soy.$$escapeHtml(itemData135.name) + '.jpg\'></img><div id=\'footer\' class=\'item-info\'><div class=\'carousel-item-name\'>' + soy.$$escapeHtml(itemData135.name) + '</div><div class=\'carousel-item-info-container\'><div class=\'carousel-item-info\'>' + soy.$$escapeHtml(itemData135.brand_name) + '</div><div class=\'carousel-item-info\'>Rs. ' + soy.$$escapeHtml(itemData135.price) + '</div></div><div class=\'carousel-item-info-container\'><div class=\'carousel-item-info\'>' + soy.$$escapeHtml(itemData135.discount) + '%</div><div class=\'carousel-item-info\'>Rs. ' + soy.$$escapeHtml(itemData135.discounted_price) + '</div></div></div></li>';
   }
   output += '</ul>';
   return output;

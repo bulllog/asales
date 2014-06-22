@@ -15,8 +15,5 @@ class Home(pybase.PyBase):
         subcategories = self.subcategories
         template_value = {
             'categories': categories, 'subcategories': subcategories,
-            'category_discounted_items': {
-              'Men':[{'id': 'bag', 'actual_cost': 'Rs. 3000', 'discount': '10%', 'discounted_cost': 'Rs. 2700'}], 'Women': [], 'Kids': [], 'Electronics': []
-            }
         }
         self.renderTemplate('home.html', template_value);

@@ -219,17 +219,20 @@
   <div class='container'>
   <ul class='carousel-main'>
     {foreach $item in $items}
-      <li carousel-tile>
+      <li class='carousel-tile'>
 	<img src='/images/{$item.category}/{$item.subcategory}/{$item.name}.jpg'>
 	</img>
 	<div id='footer' class='item-info'>
-	    <div> {$item.name} </div>
-	    <div class=price-info>
-	      <div class='old-price'> Rs. {$item.price} </div>
-	      <div>{$item.discount} </div>
-	      <div>{$item.discounted_price}</div>
-	    </div>
+	  <div class='carousel-item-name'>{$item.name}</div>
+	  <div class='carousel-item-info-container'>
+	    <div class='carousel-item-info'>{$item.brand_name}</div>
+	    <div class='carousel-item-info'>Rs. {$item.price}</div>
 	  </div>
+	  <div class='carousel-item-info-container'>
+	    <div class='carousel-item-info'>{$item.discount}%</div>
+	    <div class='carousel-item-info'>Rs. {$item.discounted_price}</div>
+	  </div>
+	</div>
       </li>
     {/foreach}
   </ul>
