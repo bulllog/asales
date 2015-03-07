@@ -289,7 +289,6 @@ left: -5px;
 #asales-women-discounted-items,
 #asales-kids-discounted-items,
 #asales-electronics-discounted-items {
-  border: 1px solid grey;
   height: 285px;
   margin-left: 10%;
   padding-left: 0px;
@@ -783,7 +782,7 @@ left: -5px;
   list-style: none;
   max-width:100%;
   margin-left: 0px;
-  height: 98%;
+  height: 285px;
   padding: 0px;
   width: 100%%;
 }
