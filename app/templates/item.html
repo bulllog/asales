@@ -1,24 +1,54 @@
 {% extends "base.html" %}
 {% block body %}
-  <div id="asales-item-image-and-details-container">
-    <img src="/images/{{ icon }}.jpg" alt="Item" class="asales-left-aligned">
-    <div class="asales-right-aligned">
-      <div class="asales-item-details">Product Name: {{ name }}</div>
-      <div class="asales-item-details">Brand Name: {{ brand_name }}</div>
-      {% if discount %}
-        <div class="asales-item-details">Original Price: {{ price }}</div>
-        <div class="asales-item-details">Discount: {{ discount }}</div>
-        <div class="asales-item-details">Final Price: {{ discounted_price }}</div>
-      {% else %}
-        <div class="asales-item-details">Price: {{ price }}</div>
-      {% endif %}
-      <input type="button" class="asales-add-to-cart-btn button button-blue" value="Add To Cart">
+  {% if item != false %}
+    <div id="asales-item-detail-container">
+      <div class='asales-item-detail'>
+	<div class='asales-item-detail-overview'>
+	  <div class='asales-item-detail-icon'>
+	    <img src="/images/{{ item.category }}/{{ item.subcategory }}/{{ item.icon }}.jpg" alt="Item" class="asales-left-aligned">
+	  </div>
+	  <div class="asales-right-aligned">
+	    <div class="asales-item-details asales-item-detail-name">{{ item.name }} </div>
+	    <div class="asales-item-details asales-item-brand-name">({{ item.brand_name }})</div>
+	    <div class='asales-rating asales-item-details'>
+	      <span class='asales-starred-star'>&#9733 &#9733 &#9733</span>
+	      <span class='asales-unstarred-star'>&#9733 &#9733</span>
+	      <span class='asales-rating-count'>46</span> Ratings</div>
+	    {% if item.is_discounted %}
+	      <div class='asales-item-discount-pane'>
+		<div class='asales-item-discount-container'>
+		  <span class='save-tag'> You Save </span>
+		  <span class='asales-item-detail-discount'>
+		    {{ item.discount }}%
+		  </span>
+		</div>
+		<div class='asales-item-origional-price'>
+		  Rs. {{ item.price }}
+		</div>
+	      </div>
+	    {% endif %}
+	    <span class='asales-item-final-price'>Rs. 
+	      {% if item.is_discounted %}
+		{{ item.discounted_price }}
+	      {% else %}
+		{{ item.price }}
+	      {% endif %}
+	    </span>
+	    <span class='in-stock'>In Stock</span>
+	    <div>
+	      <input type="button" id="asales-add-to-cart-btn" class="button button-blue" value="Add To Cart">
+	    </div>
+	  </div>
+	</div>
+      
+	<div id="asales-item-description">
+	  Product Description:
+	  <p>{{ item.description }}</p>
+	<div>
+      </div>
     </div>
-  </div>
-  <hr>
-  <div id="asales-item-description">
-    Product Description:
-    <p>{{ description }}</p>
-  <div>
+  {% else %}
+    <div class='item-not-found'>!!! No Product Found!!! </div>
+  {% endif %}
 {% endblock %}
 

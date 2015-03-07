@@ -22,7 +22,10 @@
   width: 100%%;
 }
 
-.carousel-tile {
+.Men-carousel-tile,
+.Women-carousel-tile,
+.Kids-carousel-tile,
+.Electronics-carousel-tile {
   border: 1px solid rgb(25, 59, 235);
   height: inherit;
   width: 30%;
@@ -36,15 +39,20 @@
   margin-left: 24%;  
 }
 
-.carousel-tile img {
+.Men-carousel-tile img,
+.Women-carousel-tile img,
+.Kids-carousel-tile img,
+.Electronics-carousel-tile img {
   height: inherit;
   width: 100%;
   -webkit-transform: rotate3d(-1,-1,0,0deg);
 }
 
 .carousel-item-name {
-  margin-left: 35%;
   margin-top: 10px;
+  max-height: 18px;
+  overflow: hidden;
+  text-align: center;
 }
 
 .carousel-item-info-container {

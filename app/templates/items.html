@@ -4,13 +4,15 @@
 	<div class='tool-bar'>
 	  <div class='items-page-info'>
 	    <span id='selected_category'>{{selected_category}}</span>
-	    <span> > </span>
 	    {% if is_discounted%}
+	    <span> > <span>
 	    <span id='discounted'>	
 	      Discounted Item
 	    </span>
-	    {% else %}
-	      <span id='selected_subcategory'>{{selected_subcategory}}</span>
+	    {% endif%}
+	    {% if selected_subcategory%}
+	    <span> > </span>
+	    <span id='selected_subcategory'>{{selected_subcategory}}</span>
 	    {% endif %}
 	    </span>
 	  </div>

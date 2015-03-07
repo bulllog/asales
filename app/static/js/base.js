@@ -12,11 +12,6 @@ goog.require('goog.array');
 goog.require('goog.object');
 
 
-/**
- * An array of categories.
- * @type {Array.<string>}
- */
-asales.base.categories = null;
 
 
 /**
@@ -26,7 +21,7 @@ asales.base.categories = null;
  * @export
  */
 asales.base = function(categories) {
- asales.base.categories = categories;
+ //asales.base.categories = categories;
  var discountedItemsEl = goog.dom.getElement('asales-discounted-items');
  if (discountedItemsEl) {
    goog.object.forEach(categories, function(category) {
@@ -38,8 +33,20 @@ asales.base = function(categories) {
  if (itemsEl) {
    var itemsObj = new asales.Items();
  }
+ goog.events.listen(goog.dom.getElement('asales-search-button'), goog.events.EventType.CLICK, asales.base.search);
 };
 
+
+/**
+ * Handler for search.
+ *
+ */
+asales.base.search = function() {
+  var keyword = goog.dom.getElement('asales-search-box')  .value;
+  if (keyword) {
+    window.location = 'www.google.com/search?q=' + keyword;
+  }
+};
 
 // Ensures the symbol will be visible after compiler renaming.
 goog.exportSymbol('asales.base', asales.base);

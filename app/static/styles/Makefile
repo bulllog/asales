@@ -16,7 +16,7 @@ carousel = carousel.css
 discounted_items = discounted_items.css
 
 
-files = ${base} ${components} ${home} ${payment.css} ${components} ${items} ${table} ${popup} ${slider} ${filter} ${carousel} ${discounted_items}
+files = ${base} ${components} ${home} ${payment.css} ${components} ${items} ${table} ${popup} ${slider} ${filter} ${carousel} ${discounted_items} ${item}
 
 asales.css: ${files}
 	cat > $@ $^

@@ -17,13 +17,15 @@ goog.require('goog.soy');
  * @constructor
  */
 asales.Carousel = function(discountedItems, domContainerId) {
+  console.log('selected category ' + discountedItems.category);
   this.discountedItems = discountedItems;
   this.selectedIndex = -1;
   this.currentElMouseOver = null;
   this.previousTile = null;
   this.timeout = null;
+  this.category = discountedItems.category;
   this.renderCarousel(domContainerId);
-  this.itemEls = goog.dom.getElementsByClass('carousel-tile');
+  this.itemEls = goog.dom.getElementsByClass(this.category + '-carousel-tile');
 
   goog.events.listen(window, goog.events.EventType.MOUSEMOVE, goog.bind(function(e) {
     this.currentElMouseOver = e.target;
@@ -33,6 +35,10 @@ asales.Carousel = function(discountedItems, domContainerId) {
   
   goog.array.forEach(this.itemEls, goog.bind(function(item){
     goog.events.listen(item, goog.events.EventType.MOUSEOVER, goog.bind(this.handleHoverOnTile, this));
+  }, this));
+
+  goog.array.forEach(this.itemEls, goog.bind(function(item){
+    goog.events.listen(item, goog.events.EventType.CLICK, goog.bind(this.handleClickOnTile, this));
   }, this));
   this.syncFocus();
 };
@@ -63,7 +69,7 @@ asales.Carousel.prototype.onFocus = function(targetTile) {
       this.previousTile = targetTile;
     }
     if (targetTile != this.previousTile) {
-      goog.array.forEach(goog.dom.getElementsByClass('item-info'), function(item) {
+      goog.array.forEach(goog.dom.getElementsByClass(this.category + '-item-info'), function(item) {
         item.style.display = 'none';
       })
     }
@@ -75,7 +81,7 @@ asales.Carousel.prototype.onFocus = function(targetTile) {
       item.style.width = computedWidth > 0 ? computedWidth.toString() + '%' : '10%';
     }, this));
 
-    targetTile.style.width = '500%';
+    targetTile.style.width = '350%';
     if (this.timeout) {
       clearTimeout(this.timeout);
       clearTimeout(this.timeoutTileHover);
@@ -115,7 +121,7 @@ asales.Carousel.prototype.syncFocus = function() {
 asales.Carousel.prototype.handleHoverOnTile = function(e) {	
     //var targetTile = (e.target.tagName == 'IMG' || e.target.className == 'item-info') ? e.target.parentElement : e.target;
   var selectedTile = null;
-  var tilesDom = goog.dom.getElementsByClass('carousel-tile');
+  var tilesDom = goog.dom.getElementsByClass(this.category + '-carousel-tile');
   goog.array.some(tilesDom, function(tile, i) {
     if( goog.dom.contains(tile, e.target) ) {
       selectedTile = i;
@@ -129,3 +135,14 @@ asales.Carousel.prototype.handleHoverOnTile = function(e) {
   }, 3510);
 };
 
+
+/**
+ * Hnadles click on tile.
+ * @param {goog.events} event Event object.
+ *
+ */
+asales.Carousel.prototype.handleClickOnTile = function(event) {
+  var item_name = this.discountedItems.items[this.selectedIndex]['icon'];
+  var url = '/item_details?item_name=' + item_name;
+  window.location = url;
+};

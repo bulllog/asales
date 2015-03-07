@@ -16,6 +16,7 @@ class Item(ndb.Model):
   name = ndb.StringProperty(required=True)
   price = ndb.IntegerProperty()
   brand_name = ndb.StringProperty()
+  icon = ndb.StringProperty()
   has_discount = ndb.BooleanProperty()
   discount = ndb.FloatProperty()
   discounted_price = ndb.IntegerProperty()

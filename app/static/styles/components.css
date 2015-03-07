@@ -54,3 +54,47 @@ a {
 ul {
   list-style: none !important;
 }
+
+
+/** input checkbox */
+
+input[type=checkbox], input[type=radio], .fakecheckbox, .fakeradio {
+-webkit-appearance: none;
+width: 13px;
+height: 13px;
+border: 1px solid #C6C6C6;
+margin: 0;
+-webkit-border-radius: 1px;
+-moz-border-radius: 1px;
+border-radius: 1px;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+cursor: default;
+position: relative;
+}
+
+input[type=checkbox]:focus, .fakecheckbox.focus {
+outline: none;
+border-color: #4d90fe;
+}
+
+input[type=checkbox]:hover, input[type=radio]:hover, .fakecheckbox:hover, .fakeradio:hover {
+border-color: #666;
+-webkit-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.1);
+-moz-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.1);
+box-shadow: inset 0px 1px 1px rgba(0,0,0,0.1);
+}
+
+input[type=checkbox]:active, input[type=radio]:active, .fakecheckbox:active, .fakeradio:active {
+border-color: #666;
+background: #ebebeb;
+}
+
+input[type=checkbox]:checked::after, .fakecheckbox.checked::after {
+content: url('/images/check_no_box.png');
+display: block;
+position: absolute;
+top: -6px;
+left: -5px;
+}

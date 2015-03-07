@@ -1,4 +1,4 @@
-# Get data from the database.
+# Get items from the database on the basis of category, subcategory and.
 
 from google.appengine.ext import ndb
 from models import items

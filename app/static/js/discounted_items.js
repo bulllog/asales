@@ -8,7 +8,6 @@ goog.provide('asales.DiscountedItems');
 
 goog.require('asales.api');
 goog.require('asales.Carousel');
-goog.require('asales.templates');
 goog.require('goog.dom');
 goog.require('goog.dom');
 goog.require('goog.events');
@@ -33,7 +32,6 @@ asales.DiscountedItems = function(category) {
  */
 asales.DiscountedItems.prototype.getDiscountedItems_ = function() {
   var successCallback = function(discountedItems) {
-    console.log(discountedItems);
     discountedItems.category = this.category_;
     carouselObj = new asales.Carousel(discountedItems, 'asales-' + this.category_.toLowerCase() + '-discounted-items');
     

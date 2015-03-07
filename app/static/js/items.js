@@ -9,7 +9,6 @@
 goog.provide('asales.Items');
 
 goog.require('asales.api');
-goog.require('asales.templates');
 goog.require('goog.dom');
 goog.require('goog.events');
 goog.require('goog.fx.Dragger');
@@ -111,7 +110,9 @@ asales.Items.prototype.handleFilterItems_ = function(event) {
       return true;
     }
   });
-  var isPriceFilter = goog.dom.getElement('slider_min').offsetLeft != 0 || goog.dom.getElement('slider_max').offsetLeft != 199;
+  console.log(goog.dom.getElement('slider_base').offsetWidth - 33);
+  console.log(goog.dom.getElement('slider_max').style.left);
+  var isPriceFilter = goog.dom.getElement('slider_min').offsetLeft != 0 || goog.dom.getElement('slider_max').offsetLeft != this.currentMaxSlider;
   if(!isBrandFilter && !isDiscountFilter && !isPriceFilter) {
     this.renderItems(this.items);
   }
@@ -122,7 +123,6 @@ asales.Items.prototype.handleFilterItems_ = function(event) {
       }
     });
     selectedParametrs['brands'] = selectedBrands;
-
     goog.array.forEach(discountOptions, function(itemEl) {
       if(itemEl.checked == true) {
 	goog.array.extend(selectedDiscount, goog.dom.getNextNode(itemEl).innerHTML);
@@ -242,10 +242,15 @@ asales.Items.prototype.renderFilterOptions = function () {
   var filterOptionDom = soyObj.renderAsElement(asales.templates.renderFilterOptions, {'uniqueBrands': uniqueBrands, 'minPrice': prices['min'], 'maxPrice': prices['max']});
   goog.dom.getElementByClass('filter-options').appendChild(filterOptionDom);
 
-  var maxWidthSlider = 180.5;
+  var maxWidthSlider = goog.dom.getElement('slider_base').offsetWidth -33;
+  console.log('maxslider' + maxWidthSlider);
+  goog.dom.getElement('slider_max').style.left = maxWidthSlider + 'px';
+  this.currentMaxSlider = goog.dom.getElement('slider_max').offsetLeft;
+  console.log('slider max' + goog.dom.getElement('slider_max').offsetLeft);
   var incrementFactor = (prices['max'] - prices['min'])/maxWidthSlider;
   this.sliderMin = new goog.fx.Dragger(goog.dom.getElement('slider_min'), null, new goog.math.Rect(0, 0, maxWidthSlider, 0));
   this.sliderMax = new goog.fx.Dragger(goog.dom.getElement('slider_max'), null, new goog.math.Rect(0, 0, maxWidthSlider, 0));
+  //TODO (pankaj kumar): Use this.currentMinSlider and this.currentMaxSlider here.
   goog.array.forEach([this.sliderMin, this.sliderMax], goog.bind(function(slider) {
     goog.events.listen(slider, 'drag', goog.bind(function(e) {
       var unselectedSlider = e.target == this.sliderMin ? this.sliderMax : this.sliderMin;

@@ -4,6 +4,7 @@ import csv
 import logging
 import os.path
 import webapp2
+import re
 
 from models import items
 from views import constant
@@ -38,5 +39,5 @@ class AddItems(webapp2.RequestHandler):
             price=int(item_info['price']), brand_name=item_info['brand_name'],
             has_discount=has_discount, discount=float(item_info['discount']),
             discounted_price=int(item_info['discounted_price']),
-            description=item_info['description'])
+            description=item_info['description'], icon=re.sub('[^\w.]', '_', item_info['name']))
         itemObj.put()

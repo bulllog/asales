@@ -1,10 +1,11 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html language='en' xmlns='http://www.w3.org/1999/xhtml'>
   <head>
-    <script type='text/javascript' src='/closure/goog/base.js'></script>
-    <script type='text/javascript' src='/js/deps.js'></script>
+    <!--<script type='text/javascript' src='/closure/goog/base.js'></script>-->
+    <!--<script type='text/javascript' src='/js/deps.js'></script>-->
+    <!--<script type='text/javascript' src='/js/base.js'></script>-->
+    <script type='text/javascript' src='/js/asales-compiled.js'></script>
     <script type='text/javascript' src='/js/asales-templates.js'></script>
-    <script type='text/javascript' src='/js/base.js'></script>
     <link rel='stylesheet' type='text/css' href='/styles/asales.css' />
   </head>
   <body>
@@ -12,7 +13,7 @@
       {% block headerbar %}
 	<div id='asales-header-bar'>
 	  <a id='asales-logo' href='/'><img src='/images/asales_logo.jpg' alt='Asales'/></a>
-	    <form id='asales-search' action='/search' method='get'>
+	    <form id='asales-search' action = ''>
 	      <input type='text' name='asales-search-box' id='asales-search-box' value='' placeholder='Search'/>
 	      <button id='asales-search-button' class='button button-blue'>
 		<img src='/images/search.png' alt='Search'/>
@@ -25,7 +26,7 @@
 	  <ul id='asales-menu-tabs'>
 	    {% for category in categories%}
 	      <li id='asales-{{ category|lower }}-tab' class='tabs'>
-		<a href='/items/?category={{ category }}' class='asales-tabs'>{{ category }}</a>
+		<a href='/items?category={{ category }}' class='asales-tabs'>{{ category }}</a>
 		<ul id='asales-{{category|lower}}-submenu' >
 		  {% if not loop.last %}
 		    {% set selected_subcategories = subcategories[:4] %}
@@ -46,7 +47,7 @@
     {% endblock %}
     {% block body %}
     {% endblock %}
-    <script type="text/javascript" src="/closure-templates/soyutils_usegoog.js"></script>
+    <script type="text/javascript" src="/js/soyutils_usegoog.js"></script>
     <script>
       {% block basejsblock %}
 	var baseFunc = new asales.base(['Men', 'Women', 'Kids', 'Electronics']);

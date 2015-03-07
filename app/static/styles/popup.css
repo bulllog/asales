@@ -11,10 +11,38 @@
   margin-left: 35%;
   opacity: 1;
   position: absolute;
-  width: 40%;
+  width: 35%;
   z-index: 1000;
 }
 
+.popup-tool-tip:before {
+  border-color: hsla(203, 13%, 52%, 0);
+  border-right-color: hsla(0, 0%, 0%, 0.05);
+  border-width: 21px;
+  margin-top: -21px;
+
+}
+
+.popup-tool-tip:before, .popup-tool-tip:after {
+  border: solid hsla(0, 0%, 0%, 0);
+  content: " ";
+  height: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  width: 0;
+
+}
+
+.popup-tool-tip:after {
+  border-color: hsla(203, 48%, 68%, 0);
+  border-right-color: hsl(0, 100%, 100%);
+  border-width: 18px;
+  display: block!important;
+  margin-top: -18px;
+
+}
 .popup-info {
   margin-left: 9px;
   margin-top: 20px;

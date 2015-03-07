@@ -13,7 +13,7 @@ app = webapp2.WSGIApplication([
     ('/', home.Home),
     ('/items', items.Items),
     ('/getitems', get_items.GetItems),
-    ('/item/details', item_details.ItemDetails),
+    ('/item_details', item_details.ItemDetails),
     ('/payment', payment.Payment),
     ('/add/items', add_items.AddItems)
     ], debug=True)
